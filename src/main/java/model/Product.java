@@ -25,9 +25,9 @@ public class Product {
     @Column(name = "productName", length = 70)
     private String productName;
 
-    // @ManyToOne
-    // @JoinColumn(name = "productLine", referencedColumnName = "productLine")
-    // private ProductLine productLine;
+    @ManyToOne
+    @JoinColumn(name = "productLine", referencedColumnName = "productLine")
+    private ProductLine productLine;
 
     @Column(name = "productScale", length = 10)
     private String productScale;
