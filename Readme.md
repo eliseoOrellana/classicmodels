@@ -32,14 +32,12 @@ A la fecha, ha transcurrido gran parte del proyecto y se tiene el siguiente avan
 
 
 
-
-
 ![](https://raw.githubusercontent.com/eliseoOrellana/classicmodels/main/bd.png?token=GHSAT0AAAAAACIVWG6QW7IKQSYBHQGYTEO2ZOUBFEA)
 
 ![](https://img.shields.io/github/stars/pandao/editor.md.svg) ![](https://img.shields.io/github/forks/pandao/editor.md.svg) ![](https://img.shields.io/github/tag/pandao/editor.md.svg) ![](https://img.shields.io/github/release/pandao/editor.md.svg) ![](https://img.shields.io/github/issues/pandao/editor.md.svg) ![](https://img.shields.io/bower/v/editor.md.svg)
 
 ----
-###Requerimientos a Desarrollar
+Requerimientos a Desarrollar
 
 El jefe de proyectos, quien lleva un control meticuloso de las actividades del proyecto, le ha solicitado a Usted que realice las siguientes tareas:
 1. Realizar consultas a la base de datos
