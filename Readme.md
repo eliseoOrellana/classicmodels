@@ -32,7 +32,7 @@ A la fecha, ha transcurrido gran parte del proyecto y se tiene el siguiente avan
 
 
 
-![](https://raw.githubusercontent.com/eliseoOrellana/classicmodels/main/bd.png?token=GHSAT0AAAAAACIVWG6QW7IKQSYBHQGYTEO2ZOUBFEA)
+![](https://raw.githubusercontent.com/eliseoOrellana/classicmodels/main/bd.png?)
 
 
 ----
