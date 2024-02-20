@@ -61,10 +61,10 @@ public class Customer {
     @Column(name = "creditLimit", precision = 10, scale = 2)
     private Double creditLimit;
 
-    // @OneToMany(mappedBy = "customerNumber")
-    // private List<Order> orders;
+    @OneToMany(mappedBy = "customerNumber")
+    private List<Order> orders;
 
-    // @OneToMany(mappedBy = "customerNumber")
-    // private List<Payment> payments;
+    @OneToMany(mappedBy = "customerNumber")
+    private List<Payment> payments;
 
 }
