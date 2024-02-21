@@ -10,7 +10,12 @@ public static void main(String[] args) {
 
 
     List<Integer> sales = generateRandomSales(5);
-    System.out.println("Ventas generadas aleatoriamente: " + sales);
+    System.out.println("-----------------------------------------------");
+    System.out.println("Demostracion Calculadora de Comisiones de venta");
+    System.out.println("-----------------------------------------------");
+    System.out.println();
+    System.out.println("Tomando 5 montos de venta aleatorios..." + sales);
+
 
     CommissionCalculator simpleCalculator = new SimpleCommissionCalculator();
     CommissionCalculator complexCalculator = new ComplexCommissionCalculator();
@@ -20,8 +25,8 @@ public static void main(String[] args) {
     int complexCommission = complexCalculator.calculateCommission(sales);
 
     // Mostrar resultados
-    System.out.println("Comisión con algoritmo simple: " + simpleCommission);
-    System.out.println("Comisión con algoritmo complejo: " + complexCommission);
+    System.out.println("Descuento con Algoritmo Simple: " + simpleCommission);
+    System.out.println("Descuento con Algoritmo Complejo: " + complexCommission);
 }
 
 // Método para generar ventas aleatorias entre $1000 y $20000
