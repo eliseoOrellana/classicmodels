@@ -40,10 +40,10 @@ public class Product {
     @Column(name = "quantityInStock")
     private int quantityInStock;
 
-    @Column(name = "buyPrice", precision = 10, scale = 2)
-    private double buyPrice;
+    @Column(name = "buyPrice")
+    private Double buyPrice;
 
-    @Column(name = "MSRP", precision = 10, scale = 2)
-    private double msrp;
+    @Column(name = "MSRP")
+    private Double msrp;
 
 }

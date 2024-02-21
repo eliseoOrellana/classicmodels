@@ -30,6 +30,6 @@ public class Payment {
     @Column(name = "paymentDate")
     private Date paymentDate;
 
-    @Column(name = "amount", precision = 10, scale = 2)
+    @Column(name = "amount")
     private Double amount;
 }

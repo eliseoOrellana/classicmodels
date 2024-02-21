@@ -1,13 +1,10 @@
 package io.eliseoorellana.classicmodels.model;
 
-import java.util.List;
-
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
-import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -58,13 +55,8 @@ public class Customer {
     @JoinColumn(name = "salesRepEmployeeNumber", referencedColumnName = "employeeNumber")
     private Employee salesRepEmployeeNumber;
 
-    @Column(name = "creditLimit", precision = 10, scale = 2)
+    @Column(name = "creditLimit")
     private Double creditLimit;
 
-    @OneToMany(mappedBy = "customerNumber")
-    private List<Order> orders;
-
-    @OneToMany(mappedBy = "customerNumber")
-    private List<Payment> payments;
 
 }

@@ -30,7 +30,7 @@ public class OrderDetail {
     @Column(name = "quantityOrdered")
     private Integer quantityOrdered;
 
-    @Column(name = "priceEach", precision = 10, scale = 2)
+    @Column(name = "priceEach")
     private Double priceEach;
 
     @Column(name = "orderLineNumber")

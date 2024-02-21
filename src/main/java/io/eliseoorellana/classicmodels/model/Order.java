@@ -35,7 +35,7 @@ public class Order {
     @Column(name = "status", length = 15)
     private String status;
 
-    @Column(name = "comments", length = 1000)
+    @Column(name = "comments", length = 500)
     private String comments;
 
     @ManyToOne
