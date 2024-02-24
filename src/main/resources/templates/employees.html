@@ -1,0 +1,38 @@
+
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Search Results</title>
+</head>
+<body>
+    <h1>list employees</h1>
+    
+    <table>
+        <thead>
+            <tr>
+                <th>Employee Number</th>
+                <th>Name</th>
+                <th>Email</th>
+                <th>Office</th>
+                <th>Manager</th>
+                <th>Action</th>
+            </tr>
+        </thead>
+        <tbody>
+            <!-- Iterate over the list of employees and display each employee's information -->
+            <tr th:each="employee : ${employees}">
+                <td th:text="${employee.employeeNumber}">Employee Number</td>
+                <td th:text="${employee.firstName + ' ' + employee.lastName}">Name</td>
+                <td th:text="${employee.email}">Email</td>
+                <td th:text="${employee.office.country}">Office</td>
+                <td th:text="${employee.reportsTo}">Manager</td>
+                <td>
+                    <!-- Link to view more details of the employee -->
+                    <a th:href="@{/employee-details(employeeNumber=${employee.employeeNumber})}">View</a>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</body>
+</html>

@@ -37,9 +37,9 @@ public class Employee {
     @JoinColumn(name = "officeCode", referencedColumnName = "officeCode")
     private Office office;
     
-    @ManyToOne
-    @JoinColumn(name = "reportsTo", referencedColumnName = "employeeNumber")
-    private Employee manager;
+    
+    @Column(name = "reportsTo", length = 10)
+    private int reportsTo;
     
     @Column(name = "jobTitle", length = 50)
     private String jobTitle;
