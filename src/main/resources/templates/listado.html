@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Lista de Representantes de Venta</title>
+    <!-- Agrega las etiquetas de estilo de Bootstrap -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+</head>
+<body>
+    <div class="container">
+        <h2>Buscar Representantes de Venta</h2>
+        <form th:action="@{/buscar-representantes}" method="get">
+            <div class="form-group">
+                <label for="oficinaSelect">Oficina:</label>
+                <select class="form-control" id="oficinaSelect" name="oficina">
+                    <!-- Itera sobre la lista de oficinas y muestra cada una como una opción -->
+                    <option th:each="oficina : ${oficinas}" th:value="${oficina.officeCode}" th:text="${oficina.city + ' - ' + oficina.country}"></option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="salesManagerSelect">Sales Manager:</label>
+                <select class="form-control" id="salesManagerSelect" name="salesManager">
+                    <!-- Itera sobre la lista de empleados y muestra cada uno como una opción -->
+                    <option th:each="empleado : ${empleados}" th:value="${empleado.employeeNumber}" th:text="${empleado.firstName + ' ' + empleado.lastName}"></option>
+                </select>
+            </div>
+            <button type="submit" class="btn btn-primary">Buscar</button>
+        </form>
+        
+        <!-- Muestra el listado de representantes de venta -->
+        <h2>Listado de Representantes de Venta</h2>
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>Número de Empleado</th>
+                    <th>Nombre</th>
+                    <th>Email</th>
+                    <th>Oficina</th>
+                    <th>Manager</th>
+                    <th>Acción</th>
+                </tr>
+            </thead>
+            <tbody>
+                <!-- Itera sobre la lista de empleados y muestra cada uno en una fila de la tabla -->
+                <tr th:each="empleado : ${empleados}">
+                    <td th:text="${empleado.employeeNumber}"></td>
+                    <td th:text="${empleado.firstName + ' ' + empleado.lastName}"></td>
+                    <td th:text="${empleado.email}"></td>
+                    <td th:text="${empleado.office.city + ' - ' + empleado.office.country}"></td>
+                    <td th:text="${empleado.manager.firstName + ' ' + empleado.manager.lastName}"></td>
+                    <td><a href="#" th:href="@{'/detalle-representante/' + ${empleado.employeeNumber}}">Ver Detalles</a></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</body>
+</html>
