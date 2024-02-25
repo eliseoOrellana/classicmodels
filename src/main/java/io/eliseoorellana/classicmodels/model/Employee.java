@@ -43,4 +43,7 @@ public class Employee {
     
     @Column(name = "jobTitle", length = 50)
     private String jobTitle;
+
+    private boolean deleted; // Campo para el soft delete
+
 }

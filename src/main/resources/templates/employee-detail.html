@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Employee Detail</title>
+</head>
+<body>
+    <h1>Employee Detail</h1>
+    <div>
+        <p>Employee Number: <span th:text="${employee.employeeNumber}"></span></p>
+        <p>Name: <span th:text="${employee.firstName} + ' ' + ${employee.lastName}"></span></p>
+        <p>Email: <span th:text="${employee.email}"></span></p>
+        <!-- Otros campos que desees mostrar -->
+    </div>
+    <a href="/employees">Back to Employee List</a> <!-- Enlace para regresar a la lista de empleados -->
+</body>
+</html>
