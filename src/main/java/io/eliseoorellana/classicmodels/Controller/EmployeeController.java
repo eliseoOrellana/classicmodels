@@ -36,7 +36,7 @@ public class EmployeeController {
         return "employee-detail";
     }
 
-    @PostMapping
+    @PostMapping("/add")
     public String saveEmployee(Employee employee, RedirectAttributes redirectAttributes) {
         employeeService.saveOrUpdate(employee);
         redirectAttributes.addFlashAttribute("message", "Employee saved successfully!");

@@ -33,11 +33,6 @@ public class Employee {
     @Column(name = "email", length = 100)
     private String email;
     
-    @ManyToOne
-    @JoinColumn(name = "officeCode", referencedColumnName = "officeCode")
-    private Office office;
-    
-    
     @Column(name = "reportsTo", length = 10)
     private int reportsTo;
     
@@ -45,5 +40,10 @@ public class Employee {
     private String jobTitle;
 
     private boolean deleted; // Campo para el soft delete
-
+    
+    @ManyToOne
+    @JoinColumn(name = "officeCode", referencedColumnName = "officeCode")
+    private Office office;
+    
+    
 }
