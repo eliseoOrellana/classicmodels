@@ -29,7 +29,7 @@
                 <td th:text="${employee.reportsTo}">Manager</td>
                 <td>
                     <!-- Link to view more details of the employee -->
-                   
+                    
                     <a th:href="@{/employees/{id}(id=${employee.employeeNumber})}">View</a>
                     <a th:href="@{/employees-form/edit(id=${employee.employeeNumber})}">Edit</a>
                     <a th:href="@{/employees/{id}/soft(id=${employee.employeeNumber})}" onclick="return confirm('Are you sure you want to soft delete this employee?')">Soft Delete</a>
