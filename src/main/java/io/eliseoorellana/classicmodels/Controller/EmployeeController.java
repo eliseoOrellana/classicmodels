@@ -1,8 +1,7 @@
 package io.eliseoorellana.classicmodels.Controller;
 
 
-import java.util.List;
-
+import org.hibernate.annotations.SoftDelete;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -58,14 +57,15 @@ public class EmployeeController {
         return "redirect:/employees";
     }
 
-
-    @DeleteMapping("/{id}/soft")
-    public String softDeleteEmployee(@PathVariable("id") int id, RedirectAttributes redirectAttributes) {
-        employeeService.softDelete(id);
-        redirectAttributes.addFlashAttribute("message", "Employee soft deleted successfully!");
+    @GetMapping("/delete/{employeeNumber}")
+    public String deleteEmployee(@PathVariable("employeeNumber") Integer employeeNumber) {
+        employeeService.deleteEmployee(employeeNumber);
         return "redirect:/employees";
     }
 
-    
-    
+    @GetMapping("/soft-delete/{employeeNumber}")
+    public String softDeleteEmployee(@PathVariable("employeeNumber") Integer employeeNumber) {
+        employeeService.softDeleteEmployee(employeeNumber);
+        return "redirect:/employees";
+    }
 }

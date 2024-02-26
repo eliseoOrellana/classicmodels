@@ -5,6 +5,9 @@ import java.util.List;
 import java.util.Optional;
 
 import org.springframework.stereotype.Service;
+import org.springframework.web.bind.annotation.DeleteMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import io.eliseoorellana.classicmodels.Repository.EmployeeRepository;
 import io.eliseoorellana.classicmodels.model.Employee;
@@ -63,14 +66,17 @@ public class EmployeeService {
         }
     }
 
-    public void softDelete(int id) {
-        Employee employee = employeeRepository.findById(id).orElse(null);
+    public void deleteEmployee(Integer employeeNumber) {
+        employeeRepository.deleteById(employeeNumber);
+    }
+
+    public void softDeleteEmployee(Integer employeeNumber) {
+        Employee employee = employeeRepository.findById(employeeNumber).orElse(null);
         if (employee != null) {
             employee.setDeleted(true);
             employeeRepository.save(employee);
         }
     }
-
 
     // public List<Employee> findEmployeesByOfficeAndJobTitle(Office office, String
     // jobTitle) {

@@ -35,7 +35,10 @@
                     
                     <a th:href="@{/employees/{id}(id=${employee.employeeNumber})}">View</a>
                     <a th:href="@{/employees-form/edit(id=${employee.employeeNumber})}">Edit</a>
-                    <a th:href="@{/employees/{id}/soft(id=${employee.employeeNumber})}" onclick="return confirm('Are you sure you want to soft delete this employee?')">Soft Delete</a>
+                     <!-- Link to delete employee (physical delete) -->
+                     <a th:href="@{/employees/delete/{id}(id=${employee.employeeNumber})}" onclick="return confirm('Are you sure you want to delete this employee?')">Delete</a>
+                     <!-- Link to soft delete employee -->
+                     <a th:href="@{/employees/soft-delete/{id}(id=${employee.employeeNumber})}" onclick="return confirm('Are you sure you want to soft delete this employee?')">Soft Delete</a>
                 </td>
             </tr>
         </tbody>
@@ -53,6 +56,6 @@
                     th:text="${employee.firstName} + ' ' + ${employee.lastName}"></option>
         </select>
     </div>
-    
+  
 </body>
 </html>

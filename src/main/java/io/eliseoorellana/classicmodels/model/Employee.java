@@ -19,7 +19,7 @@ public class Employee {
 
     @Id
     @Column(name = "employeeNumber")
-    private int employeeNumber;
+    private Integer employeeNumber;
     
     @Column(name = "lastName", length = 50)
     private String lastName;
@@ -34,12 +34,12 @@ public class Employee {
     private String email;
     
     @Column(name = "reportsTo", length = 10)
-    private int reportsTo;
+    private Integer reportsTo;
     
     @Column(name = "jobTitle", length = 50)
     private String jobTitle;
 
-    private boolean deleted; // Campo para el soft delete
+    private boolean deleted=Boolean.FALSE; // Campo para el soft delete iniciandolos como false
     
     @ManyToOne
     @JoinColumn(name = "officeCode", referencedColumnName = "officeCode")
