@@ -8,6 +8,9 @@
 <body>
     <h1>list employees</h1>
     
+
+    
+
     <table>
         <thead>
             <tr>
@@ -39,5 +42,17 @@
     </table>
     <a href="/employees/add">Add New Employee</a> <!-- Enlace para agregar un nuevo empleado -->
     <div th:text="${message}"></div> <!-- Mensaje de éxito o error -->
+
+  <!--probando pasar los datos al select-->
+
+    <div class="col-3 mt-3">
+        <label for="" class="form-label">Empleado</label>
+        <select class="form-select" th:field="*{employee}">
+            <option value="0" selected>Seleccione Empleado</option>
+            <option th:each="employee : ${employees}" th:value="${employee.employeeNumber}"
+                    th:text="${employee.firstName} + ' ' + ${employee.lastName}"></option>
+        </select>
+    </div>
+    
 </body>
 </html>
