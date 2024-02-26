@@ -35,7 +35,11 @@ public class EmployeeController {
         model.addAttribute("employee", employee);
         return "employee-detail";
     }
-
+    @GetMapping("/add")
+    public String showAddEmployeeForm(Model model) {
+        model.addAttribute("employee", new Employee());
+        return "add";
+    }
     @PostMapping("/add")
     public String saveEmployee(Employee employee, RedirectAttributes redirectAttributes) {
         employeeService.saveOrUpdate(employee);

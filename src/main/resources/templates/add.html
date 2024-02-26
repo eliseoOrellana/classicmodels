@@ -1,23 +1,38 @@
+<!-- addEmployee.html -->
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Add Employee</title>
 </head>
 <body>
     <h2>Add Employee</h2>
-    <form th:action="@{/employees/add}" method="post">
-        <label for="firstName">First Name:</label><br>
-        <input type="text" id="firstName" name="firstName"><br>
+    <form action="/employees/add" method="post">
+        <label for="employeeNumber">Employee Number:</label>
+        <input type="text" id="employeeNumber" name="employeeNumber"><br><br>
         
-        <label for="lastName">Last Name:</label><br>
-        <input type="text" id="lastName" name="lastName"><br>
+        <label for="lastName">Last Name:</label>
+        <input type="text" id="lastName" name="lastName"><br><br>
         
-        <label for="email">Email:</label><br>
-        <input type="email" id="email" name="email"><br>
+        <label for="firstName">First Name:</label>
+        <input type="text" id="firstName" name="firstName"><br><br>
         
-        <!-- Otros campos del empleado -->
+        <label for="extension">Extension:</label>
+        <input type="text" id="extension" name="extension"><br><br>
         
+        <label for="email">Email:</label>
+        <input type="text" id="email" name="email"><br><br>
+        
+        <label for="reportsTo">Reports To:</label>
+        <input type="text" id="reportsTo" name="reportsTo"><br><br>
+        
+        <label for="jobTitle">Job Title:</label>
+        <input type="text" id="jobTitle" name="jobTitle"><br><br>
+        
+        <label for="officeCode">Office Code:</label>
+        <input type="text" id="officeCode" name="officeCode"><br><br>
         <input type="submit" value="Submit">
     </form>
 </body>
