@@ -48,6 +48,8 @@
 
   <!--probando pasar los datos al select-->
 
+  <!--employee-->
+
     <div class="col-3 mt-3">
         <label for="" class="form-label">Empleado</label>
         <select class="form-select" th:field="*{employee}">
@@ -56,6 +58,18 @@
                     th:text="${employee.firstName} + ' ' + ${employee.lastName}"></option>
         </select>
     </div>
+
+    <!--office-->
   
+    <div class="col-3 mt-3">
+        <label for="" class="form-label">Oficina</label>
+        <select class="form-select" th:field="*{office}">
+            <option value="0" selected>Seleccione Oficina</option>
+            <option th:each="office : ${offices}" th:value="${office.officeCode}"
+                    th:text="${office.city + ' - ' + office.country}"></option>
+        </select>
+    </div>
+
+
 </body>
 </html>
