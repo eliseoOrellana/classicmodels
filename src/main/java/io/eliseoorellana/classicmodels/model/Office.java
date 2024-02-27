@@ -43,5 +43,7 @@ public class Office {
     
     @Column(name = "territory", length = 10)
     private String territory;
+
+    private boolean deleted=Boolean.FALSE; // Campo para el soft delete iniciandolos como false
 }
 
