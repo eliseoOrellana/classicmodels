@@ -4,6 +4,7 @@ package io.eliseoorellana.classicmodels.Controller;
 import java.util.List;
 
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -24,10 +25,18 @@ private final OfficeService officeService;
         this.officeService = officeService;
     }
 
+    // @GetMapping
+    // public List<Office> getAllOffices() {
+    //     return officeService.getAllOffices();
+    // }
+
     @GetMapping
-    public List<Office> getAllOffices() {
-        return officeService.getAllOffices();
+    public String getAllOffices(Model model) {
+        model.addAttribute("offices", officeService.getAllOffices());
+        
+        return "employees";
     }
+
 
     @GetMapping("/{officeCode}")
     public Office getOfficeByCode(@PathVariable String officeCode) {
@@ -43,7 +52,7 @@ private final OfficeService officeService;
     public void deleteOffice(@PathVariable String officeCode) {
         officeService.delete(officeCode);
     }
-    
+
     @GetMapping("/soft-delete/{officeCode}")
     public String softDeleteOffice(@PathVariable("officeCode") String officeCode) {
         officeService.softDeleteOffice(officeCode);
