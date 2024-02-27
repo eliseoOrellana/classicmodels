@@ -49,12 +49,15 @@
         <button type="submit" class="btn btn-outline-danger">Buscar<i class="fa-solid fa-magnifying-glass mx-2"></i></button>
     </div>
 
-    <table id="vendedor" class="table table-striped table-bordered mt-5">
-        <thead class="table-light">
+
+    </div>
+
+    <table class="table">
+        <thead>
             <tr>
                 <th>Num Empleado</th>
                 <th>Nombre</th>
-                <th>Email</th> 
+                <th>Email</th>
                 <th>Oficina</th>
                 <th>Manager</th>
                 <th>Actions</th>
@@ -62,23 +65,26 @@
         </thead>
         <tbody class="text-center">
             <tr th:each="vendedor: ${litasVendedor}">
-                <td th:text="${vendedor.employeeNumber}"></td>
-                <td th:text="${vendedor.firstName}"></td>
-                <td th:text="${vendedor.emailAddress}"></td>
-                <td th:text="${vendedor.cityOffice}"></td>
-                <td th:text="${vendedor.manager}"></td>
-                <td>
-                    <a th:href="@{/Empleado/{idE}/{idSm} (idE=${vendedor.employeeNumber},idSm=${vendedor.idManager})}" class="btn btn-outline-info btn-sm ">ver</a>
-                </td>
-            </tr>
-        </tbody>
-    </table>
+                <td th:text="${employee.employeeNumber}">Employee Number</td>
+            <td th:text="${employee.firstName + ' ' + employee.lastName}">Full Name</td>
+            <td th:text="${employee.email}">Email</td>
+            <td th:text="${employee.office.city + ' - ' + employee.office.country}">Office</td>
+            <td th:text="${employee.reportsTo}">Manager</td>
+            <td>
+                <!-- Aquí puedes agregar enlaces o botones para realizar acciones con el empleado -->
+                <a onclick="viewEmployeeDetails(${employee.employeeNumber})" 
+                   href="#" class="btn btn-primary btn-sm">Detalle</a>
+                <!-- Agrega enlaces o botones para editar o eliminar el empleado si es necesario -->
+            </td>
+        </tr>
+    </tbody>
+</table>
 
 
     </div>
 
 
-    
+   
 
     <!-- Bootstrap Bundle with Popper -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
