@@ -30,9 +30,25 @@ public class SalesManagerController {
     public String getAllEmployees(Model model) {
         model.addAttribute("employees", employeeService.getAllEmployees());
         model.addAttribute("employee", new Employee());
-        model.addAttribute("offices", officeService.getAllOffices());
+        model.addAttribute("offices", officeService.findDistinctCountries());
         model.addAttribute("office", new Office());
         return "sales-manager";
     }
+    
 
-}
+    @PostMapping("/search")
+    public String searchEmployees(@ModelAttribute("employee") Employee employee,
+                                  @ModelAttribute("office") Office office,
+                                  Model model) {
+        // Realizar la búsqueda de empleados utilizando los datos seleccionados
+        List<Employee> employees = employeeService.listaVendedor(employee.getEmployeeNumber(), office.getOfficeCode());
+
+        // Agregar los resultados al modelo
+        model.addAttribute("employees", employees);
+        model.addAttribute("offices", officeService.getAllOffices()); // Mantener las opciones de oficinas en la vista
+        return "sales-manager";
+    }
+
+
+    
+  }

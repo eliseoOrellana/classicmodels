@@ -75,7 +75,7 @@ public class EmployeeService {
             employeeRepository.save(employee);
         }
     }
-
+    
     
     // public List<Employee> findEmployeesByOfficeAndJobTitle(Office office, String
     // jobTitle) {
@@ -83,4 +83,18 @@ public class EmployeeService {
     // employeeRepository.findByOfficeAndJobTitleOrderByFirstNameAscLastNameAsc(office,
     // jobTitle);
     // }
+
+// Método para obtener los vendedores basado en una consulta compuesta
+public List<Employee> listaVendedor(Integer idSM, String offCountry) {
+    try {
+        // Aquí simplemente llamamos al método en el repositorio Hibernate
+        return employeeRepository.listaVendedor(idSM, offCountry);
+    } catch (Exception e) {
+        e.printStackTrace();
+        return Collections.emptyList();
+    }
+}
+
+
+
 }

@@ -21,7 +21,7 @@
 
     
 
-    <table>
+    <table class="table" id="employees">
         <thead>
             <tr>
                 <th>Employee Number</th>
@@ -40,6 +40,7 @@
                 <td th:text="${employee.email}">Email</td>
                 <td th:text="${employee.office.country}">Office</td>
                 <td th:text="${employee.reportsTo}">Manager</td>
+                <td th:text="${employee.jobTitle}">Manager</td>
                 <td>
                     <!-- Link to view more details of the employee -->
                     
@@ -60,8 +61,33 @@
         <button type="submit" class="btn btn-success"><a href="/employees/add">Add New Employee</a> <i class="fa-solid fa-magnifying-glass fas fa-plus"></i></button>
     </div>
 
+<!-- Bootstrap Bundle with Popper -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
+integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous">
+</script>
+<!-- jQuery -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<!-- Font Awesome JS -->
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/js/all.min.js">
+</script>
+<!-- DataTables JS -->
+<script type="text/javascript"
+src="https://cdn.datatables.net/v/bs4/dt-1.10.25/datatables.min.js"></script>
+<!-- DataTables DateTime plugin JS -->
+<script type="text/javascript"
+src="https://cdn.datatables.net/datetime/1.1.0/js/dataTables.dateTime.min.js"></script>
 
-
+<!-- Inicialización de DataTable -->
+<script>
+$(document).ready(function () {
+    $("#employees").DataTable({
+        'aoColumnDefs': [{
+            'bSortable': false,
+            'aTargets': [-1] /* 1st one, start by the right */
+        }]
+    });
+});
+</script>
 
 </body>
 </html>

@@ -61,4 +61,8 @@ private final OfficeRepository officeRepository;
         }
     }
 
+    public List<String> findDistinctCountries() {
+        return officeRepository.findDistinctCountries();
+    }
+
 }

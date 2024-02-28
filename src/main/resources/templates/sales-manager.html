@@ -22,70 +22,67 @@
     <div class="container-lg mb-3 ">
         <h1 class="mt-3">Gestion de Vendedores</h1>
         
-<!--employee-->
-
-<div class="col-3 mt-3">
-    <label for="" class="form-label">Empleado</label>
-    <select class="form-select" th:field="*{employee}">
-        <option value="0" selected>Seleccione Empleado</option>
-        <option th:each="employee : ${employees}" th:value="${employee.employeeNumber}"
-                th:text="${employee.firstName} + ' ' + ${employee.lastName}"></option>
-    </select>
-</div>
-
-
-    <!--office-->
-  
-    <div class="col-3 mt-3">
-        <label for="" class="form-label">Oficina</label>
-        <select class="form-select" th:field="*{office}">
-            <option value="0" selected>Seleccione Oficina</option>
-            <option th:each="office : ${offices}" th:value="${office.officeCode}"
-                    th:text="${office.city + ' - ' + office.country}"></option>
-        </select>
-    </div>
-
-    <div class="col-3 mt-5">
-        <button type="submit" class="btn btn-outline-danger">Buscar<i class="fa-solid fa-magnifying-glass mx-2"></i></button>
-    </div>
-
-
-    </div>
-
-    <table class="table">
-        <thead>
-            <tr>
-                <th>Num Empleado</th>
-                <th>Nombre</th>
-                <th>Email</th>
-                <th>Oficina</th>
-                <th>Manager</th>
-                <th>Actions</th>
-            </tr>
-        </thead>
-        <tbody class="text-center">
-            <tr th:each="vendedor: ${litasVendedor}">
-                <td th:text="${employee.employeeNumber}">Employee Number</td>
-            <td th:text="${employee.firstName + ' ' + employee.lastName}">Full Name</td>
-            <td th:text="${employee.email}">Email</td>
-            <td th:text="${employee.office.city + ' - ' + employee.office.country}">Office</td>
-            <td th:text="${employee.reportsTo}">Manager</td>
-            <td>
-                <!-- Aquí puedes agregar enlaces o botones para realizar acciones con el empleado -->
-                <a onclick="viewEmployeeDetails(${employee.employeeNumber})" 
-                   href="#" class="btn btn-primary btn-sm">Detalle</a>
-                <!-- Agrega enlaces o botones para editar o eliminar el empleado si es necesario -->
-            </td>
-        </tr>
-    </tbody>
-</table>
+        <form method="post" action="/sales-manager/search">
+            <!-- Empleado -->
+            <div class="col-3 mt-3">
+                <label for="" class="form-label">Empleado</label>
+                <select class="form-select" name="employeeNumber">
+                    <option value="0" selected>Seleccione Empleado</option>
+                    <option th:each="employee : ${employees}" th:value="${employee.employeeNumber}">
+                        <span th:text="${employee.firstName} + ' ' + ${employee.lastName}"></span>
+                    </option>
+                </select>
+            </div>
+        
+            <!-- Oficina -->
+            <div class="col-3 mt-3">
+                <label for="" class="form-label">Oficina</label>
+                <select class="form-select" name="officeCode">
+                    <option value="0" selected>Seleccione Oficina</option>
+                    <option th:each="office : ${offices}" th:value="${office}">
+                        <span th:text="${office}"></span>
+                    </option>
+                </select>
+            </div>
+        
+            <div class="col-3 mt-5">
+                <button type="submit" class="btn btn-outline-danger">Buscar<i class="fa-solid fa-magnifying-glass mx-2"></i></button>
+            </div>
+        
+            <!-- Tabla para mostrar los resultados de la búsqueda -->
+            <div class="mt-5">
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th scope="col">Número de Empleado</th>
+                            <th scope="col">Name</th>
+                            <th scope="col">Email</th>
+                            <th scope="col">Office</th>
+                            <th scope="col">sales manager</th>
+                            <th scope="col">action</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <!-- Aquí se llenarán dinámicamente los datos de los empleados -->
+                        <!-- Puedes usar Thymeleaf para iterar sobre la lista de empleados y mostrarlos en la tabla -->
+                        <!-- Por ejemplo, algo así: -->
+                        <tr th:each="employee : ${employees}">
+                            <td th:text="${employee.employeeNumber}"></td>
+                            <td th:text="${employee.firstName + ' ' + employee.lastName}"></td>
+                            <td th:text="${employee.email}"></td>
+                            <td th:text="${employee.office.country}"></td>
+                            <td th:text="${employee.reportsTo}"></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </form>
 
 
     </div>
 
 
-   
-
+    
     <!-- Bootstrap Bundle with Popper -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous">
@@ -112,6 +109,8 @@
                 }]
             });
         });
+        
+
     </script>
 </body>
 
