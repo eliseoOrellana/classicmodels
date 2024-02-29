@@ -51,5 +51,10 @@ public class SalesManagerController {
     }
 
 
-    
+    @GetMapping("/inicio")
+    public String home(Model model) {
+        model.addAttribute("offices", officeService.getAllOffices());
+       model.addAttribute("employees", employeeService.getAllEmployees());
+        return "vistaPrincipal";
+    }
   }
