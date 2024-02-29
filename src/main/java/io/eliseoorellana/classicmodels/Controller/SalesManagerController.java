@@ -32,11 +32,12 @@ public class SalesManagerController {
         model.addAttribute("employee", new Employee());
         model.addAttribute("offices", officeService.findDistinctCountries());
         model.addAttribute("office", new Office());
+
         return "sales-manager";
     }
     
 
-    @PostMapping("/search")
+    @PostMapping
     public String searchEmployees(@ModelAttribute("employee") Employee employee,
                                   @ModelAttribute("office") Office office,
                                   Model model) {
@@ -45,7 +46,7 @@ public class SalesManagerController {
 
         // Agregar los resultados al modelo
         model.addAttribute("employees", employees);
-        model.addAttribute("offices", officeService.getAllOffices()); // Mantener las opciones de oficinas en la vista
+        
         return "sales-manager";
     }
 
