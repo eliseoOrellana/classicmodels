@@ -1,5 +1,6 @@
 package io.eliseoorellana.classicmodels.Controller;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -28,28 +29,40 @@ public class SalesManagerController {
 
     @GetMapping
     public String getAllEmployees(Model model) {
-        model.addAttribute("employees", employeeService.getAllEmployees());
+        // Obtener todos los empleados y oficinas para cargar los selectores
+        List<Employee> allEmployees = employeeService.getAllEmployees();
+        List<String> allOffices = officeService.findDistinctCountries();
+
+        // Agregar los empleados y oficinas al modelo
+        model.addAttribute("allEmployees", allEmployees);
+        model.addAttribute("allOffices", allOffices);
+
+        // Crear objetos vacíos para el formulario de búsqueda
         model.addAttribute("employee", new Employee());
-        model.addAttribute("offices", officeService.findDistinctCountries());
         model.addAttribute("office", new Office());
 
         return "sales-manager";
     }
     
 
-    @PostMapping
+    @PostMapping("/search")
     public String searchEmployees(@ModelAttribute("employee") Employee employee,
-                                  @ModelAttribute("office") Office office,
-                                  Model model) {
+    @ModelAttribute("office") Office office,
+    Model model) {
         // Realizar la búsqueda de empleados utilizando los datos seleccionados
         List<Employee> employees = employeeService.listaVendedor(employee.getEmployeeNumber(), office.getOfficeCode());
 
-        // Agregar los resultados al modelo
+        // Obtener todos los empleados y oficinas para cargar los selectores
+        List<Employee> allEmployees = employeeService.getAllEmployees();
+        List<String> allOffices = officeService.findDistinctCountries();
+
+        // Agregar los empleados, oficinas y resultados de la búsqueda al modelo
+        model.addAttribute("allEmployees", allEmployees);
+        model.addAttribute("allOffices", allOffices);
         model.addAttribute("employees", employees);
         
         return "sales-manager";
     }
-
 
     @GetMapping("/index")
     public String home(Model model) {
