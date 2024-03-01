@@ -5,9 +5,21 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+    <!-- DataTables CSS -->
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/v/bs4/dt-1.10.25/datatables.min.css" />
+    <!-- Font Awesome CSS -->
+    <link rel="stylesheet" type="text/css"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" />
+        <link href="/css/style.css" rel="stylesheet">
+        <link href="/css/addStyle.css" rel="stylesheet">
+        
     <title>Add Employee</title>
 </head>
 <body id="home">
+    
     
     <nav class="navbar navbar-expand-lg navbar-dark fixed-top bg-dark" id="navbar">
         <div class="container-fluid">
@@ -34,32 +46,67 @@
     </nav>
     <br><br><br>
 
+    <div class="container">  
+    <div class="text-center">
     <h2>Add Employee</h2>
-    <form action="/employees/add" method="post">
+</div>
+    <form id="contact" action="/employees/add" method="post">
         <label for="employeeNumber">Employee Number:</label>
-        <input type="text" id="employeeNumber" name="employeeNumber"><br><br>
+        <input type="text" id="employeeNumber" name="employeeNumber" required><br>
         
         <label for="lastName">Last Name:</label>
-        <input type="text" id="lastName" name="lastName"><br><br>
+        <input type="text" id="lastName" name="lastName" required><br>
         
         <label for="firstName">First Name:</label>
-        <input type="text" id="firstName" name="firstName"><br><br>
+        <input type="text" id="firstName" name="firstName" required><br>
         
         <label for="extension">Extension:</label>
-        <input type="text" id="extension" name="extension"><br><br>
+        <input type="number" id="extension" name="extension" required><br>
         
         <label for="email">Email:</label>
-        <input type="text" id="email" name="email"><br><br>
+        <input type="text" id="email" name="email" required><br>
         
         <label for="reportsTo">Reports To:</label>
-        <input type="text" id="reportsTo" name="reportsTo"><br><br>
+        <select id="reportsTo" name="reportsTo" required>
+            <option th:each="employee : ${employees}" th:value="${employee.employeeNumber}" th:text="${employee.firstName} + ' ' + ${employee.lastName} + ' - ' + ${employee.jobTitle}"></option>
+        </select><br>
+        
+        <!-- <label for="reportsTo">Reports To:</label>
+        <input type="text" id="reportsTo" name="reportsTo" required><br> -->
         
         <label for="jobTitle">Job Title:</label>
-        <input type="text" id="jobTitle" name="jobTitle"><br><br>
+        <input type="text" id="jobTitle" name="jobTitle" required><br>
         
         <label for="officeCode">Office Code:</label>
-        <input type="text" id="officeCode" name="officeCode"><br><br>
-        <input type="submit" value="Submit">
+        
+       
+        <select id="officeCode" name="officeCode" required>
+            <option  type="text" th:each="office : ${officeCodes}" th:value="${office.officeCode}" th:text="${office.country} + ' - ' + ${office.city}"></option>
+        </select><br>
+        <!--
+        <label for="officeCode">Office Code:</label>
+        <input type="number" id="officeCode" name="officeCode"required><br>
+        -->
+        <button type="submit" value="Submit"  class="btn btn-outline-success"> Submit <i class="fa-solid fa-magnifying-glass fas fa-plus"></i></button>
     </form>
+
+</div>
+    <!-- Bootstrap Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous">
+    </script>
+    <!-- jQuery -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <!-- Font Awesome JS -->
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/js/all.min.js">
+    </script>
+    <!-- DataTables JS -->
+    <script type="text/javascript"
+    src="https://cdn.datatables.net/v/bs4/dt-1.10.25/datatables.min.js"></script>
+    <!-- DataTables DateTime plugin JS -->
+    <script type="text/javascript"
+    src="https://cdn.datatables.net/datetime/1.1.0/js/dataTables.dateTime.min.js"></script>
+
+
 </body>
 </html>

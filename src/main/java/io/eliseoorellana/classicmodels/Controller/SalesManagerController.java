@@ -1,6 +1,6 @@
 package io.eliseoorellana.classicmodels.Controller;
 
-import java.util.ArrayList;
+
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -15,7 +15,6 @@ import io.eliseoorellana.classicmodels.Service.EmployeeService;
 import io.eliseoorellana.classicmodels.Service.OfficeService;
 import io.eliseoorellana.classicmodels.model.Employee;
 import io.eliseoorellana.classicmodels.model.Office;
-
 
 @Controller
 @RequestMapping("/sales-manager")
@@ -43,12 +42,11 @@ public class SalesManagerController {
 
         return "sales-manager";
     }
-    
 
     @PostMapping("/search")
     public String searchEmployees(@ModelAttribute("employee") Employee employee,
-    @ModelAttribute("office") Office office,
-    Model model) {
+            @ModelAttribute("office") Office office,
+            Model model) {
         // Realizar la búsqueda de empleados utilizando los datos seleccionados
         List<Employee> employees = employeeService.listaVendedor(employee.getEmployeeNumber(), office.getOfficeCode());
 
@@ -60,14 +58,17 @@ public class SalesManagerController {
         model.addAttribute("allEmployees", allEmployees);
         model.addAttribute("allOffices", allOffices);
         model.addAttribute("employees", employees);
-        
+
         return "sales-manager";
     }
 
     @GetMapping("/index")
     public String home(Model model) {
         model.addAttribute("offices", officeService.getAllOffices());
-       model.addAttribute("employees", employeeService.getAllEmployees());
+        model.addAttribute("employees", employeeService.getAllEmployees());
         return "mainView";
     }
-  }
+
+    
+
+}

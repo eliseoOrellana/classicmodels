@@ -17,7 +17,7 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 
 import io.eliseoorellana.classicmodels.Service.EmployeeService;
-
+import io.eliseoorellana.classicmodels.Service.OfficeService;
 import io.eliseoorellana.classicmodels.model.Employee;
 
 
@@ -28,9 +28,11 @@ public class EmployeeController {
 
     @Autowired
     private EmployeeService employeeService;
+    
+    @Autowired
+    private OfficeService officeService;
 
-    
-    
+
     @GetMapping
     public String getAllEmployees(Model model){
         model.addAttribute("employees", employeeService.getAllEmployees());
@@ -44,9 +46,14 @@ public class EmployeeController {
         model.addAttribute("employee", employee);
         return "employee-detail";
     }
+
+    //envio datos para los select
     @GetMapping("/add")
     public String showAddEmployeeForm(Model model) {
         model.addAttribute("employee", new Employee());
+        model.addAttribute("employees", employeeService.getAllEmployees()); // Lista de empleados y cargos
+        model.addAttribute("officeCodes", officeService.getAllOffices()); // Lista de códigos de oficina con país y
+
         return "add";
     }
     @PostMapping("/add")
@@ -77,6 +84,8 @@ public class EmployeeController {
     }
 
     
+     
+
 
     
 }

@@ -16,7 +16,7 @@
         <link href="css/style.css" rel="stylesheet">
 </head>
 <body id="home">
-    
+  <div class="container-fluid">
     <nav class="navbar navbar-expand-lg navbar-dark fixed-top bg-dark" id="navbar">
         <div class="container-fluid">
             <a class="navbar-brand" href="#">
@@ -40,19 +40,31 @@
             </div>
         </div>
     </nav>
-    <br><br><br>
+    <br><br><br><br>
 
-    
     <h1>list employees</h1>
+
+    <!-- <a href="/employees/add">Add New Employee</a>  Enlace para agregar un nuevo empleado 
+    <div th:text="${message}"></div>  Mensaje de éxito o error 
+    -->
+   
+<div class="text-center">
+    <div class="">
+        <button type="submit" class="btn btn-outline-success"><a href="/employees/add">Add New Employee</a> <i class="fa-solid fa-magnifying-glass fas fa-plus"></i></button>
+    </div>
+    <div th:text="${message}"></div> <!-- Mensaje de éxito o error -->
+</div>
+   
     
-    <table class="table" id="employees">
+    <table class="table table-striped" id="employees">
         <thead>
             <tr>
                 <th>Employee Number</th>
                 <th>Name</th>
                 <th>Email</th>
-                <th>Office</th>
+              <th>Office</th>
                 <th>Manager</th>
+                <th>Job title</th>
                 <th>Action</th>
             </tr>
         </thead>
@@ -62,7 +74,7 @@
                 <td th:text="${employee.employeeNumber}">Employee Number</td>
                 <td th:text="${employee.firstName + ' ' + employee.lastName}">Name</td>
                 <td th:text="${employee.email}">Email</td>
-                <td th:text="${employee.office.country}">Office</td>
+                <td th:text="${employee.office.country}">Office</td> 
                 <td th:text="${employee.reportsTo}">Manager</td>
                 <td th:text="${employee.jobTitle}">Manager</td>
                 <td>
@@ -78,13 +90,8 @@
             </tr>
         </tbody>
     </table>
-    <a href="/employees/add">Add New Employee</a> <!-- Enlace para agregar un nuevo empleado -->
-    <div th:text="${message}"></div> <!-- Mensaje de éxito o error -->
-
-    <div class="col-3 mt-5">
-        <button type="submit" class="btn btn-success"><a href="/employees/add">Add New Employee</a> <i class="fa-solid fa-magnifying-glass fas fa-plus"></i></button>
-    </div>
-
+  
+</div>
 <!-- Bootstrap Bundle with Popper -->
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
 integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous">
