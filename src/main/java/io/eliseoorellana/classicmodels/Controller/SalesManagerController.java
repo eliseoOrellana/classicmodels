@@ -69,6 +69,9 @@ public class SalesManagerController {
         return "mainView";
     }
 
-    
+    @GetMapping("/")
+public String index(Model model) {
+    return "redirect:/sales-manager/index";
+}
 
 }
