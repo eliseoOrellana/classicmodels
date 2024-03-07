@@ -61,13 +61,24 @@ a:hover {
 --------------------------------------------------------------*/
 #home {
   width: 100%;
-  height: calc(100vh - 110px);
+  
   background: whitesmoke;
   background-size: cover;
   position: relative;
+  
+  padding-bottom: 13em;
+  min-height: 100vh;
 }
 
 #card-div,#sellerManagment,#titulo{
 padding-top: 80px;
 }
 
+
+#footer {
+  padding-top: 800px;
+     position: absolute;
+     bottom: 0;
+     width: 100%;
+     
+}
