@@ -17,32 +17,11 @@
 </head>
 <body id="home">
   <div class="container-fluid">
-    <nav class="navbar navbar-expand-lg navbar-dark fixed-top bg-dark" id="navbar">
-        <div class="container-fluid">
-            <a class="navbar-brand" href="#">
-                <img src="/img/sales.png.webp" alt="" width="80" height="50"></a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown"
-                aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarNavDropdown">
-                <ul class="navbar-nav">
-                    <li class="nav-item">
-                        <a class="nav-link active" aria-current="page" th:href="@{sales-manager/index}">HOME</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" th:href="@{/sales-manager}">Saller management</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" th:href="@{/employees}">Employee management</a>
-                    </li>
-                </ul>
-            </div>
-        </div>
-    </nav>
-    <br><br><br><br>
+      <!-- Incluir el navbar -->
 
-    <h1>List employees</h1>
+   <div th:replace="~{fragments/navbar :: navbar}"></div>
+
+    <h1 id="titulo">List employees</h1>
 
     <!-- <a href="/employees/add">Add New Employee</a>  Enlace para agregar un nuevo empleado 
     <div th:text="${message}"></div>  Mensaje de éxito o error 

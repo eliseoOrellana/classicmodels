@@ -67,3 +67,7 @@ a:hover {
   position: relative;
 }
 
+#card-div,#sellerManagment,#titulo{
+padding-top: 80px;
+}
+
