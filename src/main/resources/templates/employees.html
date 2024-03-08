@@ -27,14 +27,15 @@
     <div th:text="${message}"></div>  Mensaje de éxito o error 
     -->
    
-<div class="text-center">
+<div id="btnAdd" class="text-center">
     <div class="">
         <button type="submit" class="btn btn-outline-success"><a href="/employees/add">Add New Employee</a> <i class="fa-solid fa-magnifying-glass fas fa-plus"></i></button>
     </div>
     <div th:text="${message}"></div> <!-- Mensaje de éxito o error -->
 </div>
    
-    
+
+ <div id="employeesdiv">
     <table class="table table-striped" id="employees">
         <thead>
             <tr>
@@ -79,7 +80,8 @@
             </tr>
         </tbody>
     </table>
-  
+</div>
+
 </div>
 <div th:replace="~{fragments/footer :: footer}"></div>
 <!-- Bootstrap Bundle with Popper -->
