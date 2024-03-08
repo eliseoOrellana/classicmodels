@@ -26,13 +26,13 @@
    <div th:replace="~{fragments/navbar :: navbar}"></div>
 
    
-   <div id="card-div" class="row justify-content-center mt-5">
-        <div class="col-sm-4">
-            <div class="card border-danger">
+   <div id="card-div" class="row mt-5">
+        <div class="col-lg-4 mb-4">
+            <div class="card border-dark">
                 <div class="card-body text-center">
                     <h5 class="card-title">OUR SELLERS</h5>
                     <div class="counter-box">
-                        <i class="fa  fa-user"></i>
+                        <i class="fa fa-user-circle"></i>
                         <span class="counter" th:text="${employees.size()}"></span><!--empleados reales-->
                         <p>
                             Workers</p>
@@ -42,16 +42,69 @@
             </div>
         </div>
 
-        <div class="col-sm-4">
-            <div class="card border-danger">
+        <div class="col-lg-4 mb-4">
+            <div class="card border-dark">
                 <div class="card-body text-center ">
                     <h5 class="card-title">OUR CLIENTS</h5>
                     <div class="counter-box">
-                        <i class="fa  fa-user"></i>
-                        <span class="counter">1563</span>
+                        <i class="fa fa-user-check"></i>
+                        <span class="counter">1800</span>
                         <p>Happy customers</p>
                     </div>
                     <a href="#" class="btn btn-outline-danger mt-3">Go to clients</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-lg-4 mb-4">
+            <div class="card border-dark">
+                <div class="card-body text-center ">
+                    <h5 class="card-title">OFFICES</h5>
+                    <div class="counter-box">
+                        <i class="fa fa-building"></i>
+                        <span class="counter" th:text="${offices.size()}"></span>
+                        <p>Our offices</p>
+                    </div>
+                    <a href="#" class="btn btn-outline-danger mt-3">Go to offices</a>
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-4 mb-4">
+            <div class="card border-dark">
+                <div class="card-body text-center ">
+                    <h5 class="card-title">PRODUCTS</h5>
+                    <div class="counter-box">
+                        <i class="fa fa-shopping-bag"></i>
+                        <span class="counter">10000</span>
+                        <p>Our products</p>
+                    </div>
+                    <a href="#" class="btn btn-outline-danger mt-3">Go to products</a>
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-4 mb-4">
+            <div class="card border-dark">
+                <div class="card-body text-center ">
+                    <h5 class="card-title">ORDERS</h5>
+                    <div class="counter-box">
+                        <i class="fa fa-building"></i>
+                        <span class="counter">8000</span>
+                        <p>Our orders</p>
+                    </div>
+                    <a href="#" class="btn btn-outline-danger mt-3">Go to orders</a>
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-4 mb-4">
+            <div class="card border-dark">
+                <div class="card-body text-center ">
+                    <h5 class="card-title">Seller Management</h5>
+                    <div class="counter-box">
+                        <i class="fa fa-user-tie"></i>
+                        <span class="counter" th:text="${employees.size()}"></span>
+                        <p>Our sellers</p>
+                    </div>
+                    <a href="/sales-manager" class="btn btn-outline-danger mt-3">Seller Management</a>
                 </div>
             </div>
         </div>
