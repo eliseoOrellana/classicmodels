@@ -4,7 +4,7 @@
 
 .counter-box {
 display: block;
-background: #6e66b9;
+background: #000000;
 padding: 40px 20px 37px;
 text-align: center
 }
@@ -17,11 +17,16 @@ font-size: 18px;
 font-weight: 500
 }
 
+
+
 .counter-box i {
 font-size: 60px;
 margin: 0 0 15px;
 color: #d2d2d2
 }
+.iclass {
+  color: #d2d2d2
+  }
 
 .counter { 
 display: block;
@@ -87,6 +92,10 @@ text-align: center;
 }
 
 /* card new  */
+
+.border-dark{
+  box-shadow: 0 0 10px rgba(36, 21, 22, 0.5); /* Efecto de sombra al pasar el ratón */
+}
 
 .per-card-1 {
   
@@ -193,3 +202,13 @@ text-align: center;
 
   padding: 60px;
 }
+
+/* btn mainView */
+.btn-go-to {
+  min-width: 150px; /* Ancho fijo */
+  
+  
+  box-shadow: 0 0 10px rgba(220, 53, 69, 0.5); /* Efecto de sombra al pasar el ratón */
+ 
+}
+
