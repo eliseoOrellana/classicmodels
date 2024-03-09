@@ -13,7 +13,9 @@
     <link rel="stylesheet" type="text/css"
         href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" />
 
-        <link href="css/style.css" rel="stylesheet">
+    <link href="css/style.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11">
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 </head>
 <body id="home">
   <div class="container-fluid">
@@ -29,9 +31,9 @@
    
 <div id="btnAdd" class="text-center">
     <div class="">
-        <button type="submit" class="btn btn-outline-success"><a href="/employees/add">Add New Employee</a> <i class="fa-solid fa-magnifying-glass fas fa-plus"></i></button>
+        <button type="submit" class="btn btn-outline-danger btn-go-to"><a href="/employees/add">Add New Employee</a> <i class="fa-solid fa-magnifying-glass fas fa-plus"></i></button>
     </div>
-    <div th:text="${message}"></div> <!-- Mensaje de éxito o error -->
+    <div id="message" th:text="${message}"></div> <!-- Mensaje de éxito o error -->
 </div>
    
 
@@ -73,9 +75,9 @@
                     <a th:href="@{/employees/{id}(id=${employee.employeeNumber})}">View</a>
                     <a th:href="@{/employees-form/edit(id=${employee.employeeNumber})}">Edit</a>
                      <!-- Link to delete employee (physical delete) -->
-                     <a th:href="@{/employees/delete/{id}(id=${employee.employeeNumber})}" onclick="return confirm('Are you sure you want to delete this employee?')">Delete</a>
+                     <a id="DeleteLink" th:href="@{/employees/delete/{id}(id=${employee.employeeNumber})}">Delete</a>
                      <!-- Link to soft delete employee -->
-                     <a th:href="@{/employees/soft-delete/{id}(id=${employee.employeeNumber})}" onclick="return confirm('Are you sure you want to soft delete this employee?')">Soft Delete</a>
+                     <a id="softDeleteLink" th:href="@{/employees/soft-delete/{id}(id=${employee.employeeNumber})}" >Soft Delete</a>
                 </td>
             </tr>
         </tbody>
@@ -99,6 +101,8 @@ src="https://cdn.datatables.net/v/bs4/dt-1.10.25/datatables.min.js"></script>
 <!-- DataTables DateTime plugin JS -->
 <script type="text/javascript"
 src="https://cdn.datatables.net/datetime/1.1.0/js/dataTables.dateTime.min.js"></script>
+</head>
+<script src="js/main.js"></script>
 
 <!-- Inicialización de DataTable -->
 <script>
