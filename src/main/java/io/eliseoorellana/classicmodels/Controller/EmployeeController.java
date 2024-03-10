@@ -44,6 +44,11 @@ public class EmployeeController {
     public String getEmployeeById(@PathVariable("id") int id, Model model) {
         Employee employee = employeeService.getEmployeeById(id);
         model.addAttribute("employee", employee);
+
+        // envio de datos para tener el nombre del suvervisor
+        String supervisorName = employeeService.getSupervisorName(employee.getReportsTo());
+        model.addAttribute("supervisorName", supervisorName);
+
         return "employee-detail";
     }
 

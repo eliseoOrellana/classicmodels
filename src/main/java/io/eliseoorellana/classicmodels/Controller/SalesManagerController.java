@@ -49,6 +49,10 @@ public class SalesManagerController {
             Model model) {
         // Realizar la búsqueda de empleados utilizando los datos seleccionados
         List<Employee> employees = employeeService.listaVendedor(employee.getEmployeeNumber(), office.getOfficeCode());
+        
+         // Obtener el nombre completo del supervisor
+        int employeeNumber=employee.getEmployeeNumber();
+        String supervisorName = employeeService.getSupervisorName(employeeNumber);
 
         // Obtener todos los empleados y oficinas para cargar los selectores
         List<Employee> allEmployees = employeeService.getAllEmployees();
@@ -58,7 +62,9 @@ public class SalesManagerController {
         model.addAttribute("allEmployees", allEmployees);
         model.addAttribute("allOffices", allOffices);
         model.addAttribute("employees", employees);
-
+        // envio  los datos del sales manager capturados con la querys creada.
+        model.addAttribute("supervisorName", supervisorName);
+        System.out.println(supervisorName);
         return "sales-manager";
     }
 

@@ -4,6 +4,7 @@ import java.util.List;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
+import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Repository;
 
 import io.eliseoorellana.classicmodels.model.Employee;
@@ -21,4 +22,9 @@ public interface EmployeeRepository extends JpaRepository<Employee, Integer>{
 @Query("SELECT e FROM Employee e INNER JOIN e.office o WHERE e.reportsTo = :idSM AND o.country = :offCountry")
  List<Employee> listaVendedor(Integer idSM, String offCountry);
 
+
+ @Query("SELECT CONCAT(eSup.firstName, ' ', eSup.lastName) " +
+           "FROM Employee eSup " +
+           "WHERE eSup.employeeNumber = :idSM")
+    String findSupervisorNameById(Integer idSM);
     }

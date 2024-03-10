@@ -95,6 +95,8 @@ public List<Employee> listaVendedor(Integer idSM, String offCountry) {
     }
 }
 
-
+public String getSupervisorName(Integer idSM) {
+    return employeeRepository.findSupervisorNameById(idSM);
+}
 
 }
