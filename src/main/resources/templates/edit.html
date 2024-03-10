@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Edit Employee</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+</head>
+<body>
+
+<div class="container">
+    <h2>Edit Employee</h2>
+    <form th:action="@{/employees/{id}(id=${employee.employeeNumber})}" th:object="${employee}" method="post">
+        <input type="hidden" th:field="*{employeeNumber}"/>
+
+        <div class="form-group">
+            <label for="firstName">First Name:</label>
+            <input type="text" class="form-control" id="firstName" th:field="*{firstName}" />
+        </div>
+
+        <div class="form-group">
+            <label for="lastName">Last Name:</label>
+            <input type="text" class="form-control" id="lastName" th:field="*{lastName}" />
+        </div>
+
+        <div class="form-group">
+            <label for="email">Email:</label>
+            <input type="email" class="form-control" id="email" th:field="*{email}" />
+        </div>
+
+        <div class="form-group">
+            <label for="office">Office:</label>
+            <select class="form-control" id="office" th:field="*{office.officeCode}">
+                <option th:each="office : ${officeCodes}" th:value="${office.officeCode}"
+                        th:text="${office.country}"></option>
+            </select>
+        </div>
+
+        <div class="form-group">
+            <label for="reportsTo">Manager:</label>
+            <select class="form-control" id="reportsTo" th:field="*{reportsTo}">
+                <option th:each="employee : ${employees}" th:value="${employee.employeeNumber}"
+                        th:text="${employee.firstName + ' ' + employee.lastName}"></option>
+            </select>
+        </div>
+
+        <div class="form-group">
+            <label for="jobTitle">Job Title:</label>
+            <input type="text" class="form-control" id="jobTitle" th:field="*{jobTitle}" />
+        </div>
+
+        <button type="submit" class="btn btn-primary">Submit</button>
+    </form>
+</div>
+
+</body>
+</html>

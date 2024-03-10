@@ -1,7 +1,5 @@
 package io.eliseoorellana.classicmodels.Controller;
 
-
-
 import org.springframework.beans.factory.annotation.Autowired;
 
 import org.springframework.stereotype.Controller;
@@ -15,12 +13,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
-
 import io.eliseoorellana.classicmodels.Service.EmployeeService;
 import io.eliseoorellana.classicmodels.Service.OfficeService;
 import io.eliseoorellana.classicmodels.model.Employee;
-
-
 
 @Controller
 @RequestMapping("/employees")
@@ -28,18 +23,17 @@ public class EmployeeController {
 
     @Autowired
     private EmployeeService employeeService;
-    
+
     @Autowired
     private OfficeService officeService;
 
-
     @GetMapping
-    public String getAllEmployees(Model model){
+    public String getAllEmployees(Model model) {
         model.addAttribute("employees", employeeService.getAllEmployees());
         model.addAttribute("employee", new Employee());
         return "employees";
     }
-    
+
     @GetMapping("/{id}")
     public String getEmployeeById(@PathVariable("id") int id, Model model) {
         Employee employee = employeeService.getEmployeeById(id);
@@ -52,7 +46,7 @@ public class EmployeeController {
         return "employee-detail";
     }
 
-    //envio datos para los select
+    // envio datos para los select
     @GetMapping("/add")
     public String showAddEmployeeForm(Model model) {
         model.addAttribute("employee", new Employee());
@@ -61,6 +55,7 @@ public class EmployeeController {
 
         return "add";
     }
+
     @PostMapping("/add")
     public String saveEmployee(Employee employee, RedirectAttributes redirectAttributes) {
         employeeService.saveOrUpdate(employee);
@@ -70,10 +65,19 @@ public class EmployeeController {
 
     @PutMapping("/{id}")
     public String updateEmployee(@PathVariable("id") int id, Employee employee, RedirectAttributes redirectAttributes) {
-        employee.setEmployeeNumber(id) ;   
+        employee.setEmployeeNumber(id);
         employeeService.saveOrUpdate(employee);
         redirectAttributes.addFlashAttribute("message", "Employee updated successfully!");
         return "redirect:/employees";
+    }
+
+    @GetMapping("/edit/{id}")
+    public String showEditEmployeeForm(@PathVariable("id") int id, Model model) {
+        Employee employee = employeeService.getEmployeeById(id);
+        model.addAttribute("employee", employee);
+        model.addAttribute("employees", employeeService.getAllEmployees());
+        model.addAttribute("officeCodes", officeService.getAllOffices());
+        return "edit";
     }
 
     @GetMapping("/delete/{employeeNumber}")
@@ -88,9 +92,4 @@ public class EmployeeController {
         return "redirect:/employees";
     }
 
-    
-     
-
-
-    
 }

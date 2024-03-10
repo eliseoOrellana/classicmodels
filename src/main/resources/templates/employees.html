@@ -75,8 +75,11 @@
                             <button class="seeButton">View</button>
                         </a>
                         <!-- Botón "Edit" -->
-                        <a th:href="@{/employees-form/edit(id=${employee.employeeNumber})}">
+                        <a th:href="@{/employees/edit/{id}(id=${employee.employeeNumber})}">
                             <button class="seeButton">Edit</button>
+                        </a>
+                        <a th:href="@{/employees/edit/{id}(id=${employee.employeeNumber})}">
+                            <button class="seeButton">Edit2454</button>
                         </a>
                         <!-- Botón "Delete" -->
                         <a id="DeleteLink" th:href="@{/employees/delete/{id}(id=${employee.employeeNumber})}">
@@ -93,6 +96,37 @@
 </div>
 
 </div>
+
+<!-- Modal para editar empleado -->
+<div class="modal fade" id="editEmployeeModal" tabindex="-1" role="dialog" aria-labelledby="editEmployeeModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="editEmployeeModalLabel">Editar Empleado</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <!-- Formulario para editar empleado -->
+                <form th:action="@{/employees/{id}(id=${employee.employeeNumber})}" th:object="${employee}" method="post">
+                    <div class="form-group">
+                        <label for="firstName">Nombre:</label>
+                        <input type="text" th:field="*{firstName}" class="form-control" id="firstName" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="lastName">Apellido:</label>
+                        <input type="text" th:field="*{lastName}" class="form-control" id="lastName" required>
+                    </div>
+                    <!-- Agrega más campos del formulario según sea necesario -->
+                    <button type="submit" class="btn btn-primary">Guardar cambios</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+
 <div th:replace="~{fragments/footer :: footer}"></div>
 <!-- Bootstrap Bundle with Popper -->
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
