@@ -242,3 +242,20 @@ text-align: center;
 padding-top: 30px;
 
 }
+
+/* see button */
+
+/* Estilos para el botón */
+#seeButton {
+  background-color: #85a1ee; /* Color celeste */
+  color: #fff; /* Color de texto blanco */
+  border: none;
+  padding: 5px 10px;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+#seeButton:hover {
+  background-color: #6ab7e6; /* Cambio de color al pasar el mouse */
+}

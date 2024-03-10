@@ -82,7 +82,7 @@
                         <td th:text="${employee.email}"></td>
                         <td th:text="${employee.office.country}"></td>
                         <td th:text="${supervisorName}"></td>
-                        <td><!-- Actions --></td>
+                        <td><button id="seeButton">See</button></td>
                     </tr>
                 </tbody>
             </table>
@@ -114,9 +114,6 @@
         $(document).ready(function () {
             $("#s").DataTable({
                 
-
-                
-
             });
         });
         
