@@ -245,8 +245,8 @@ padding-top: 30px;
 
 /* see button */
 
-/* Estilos para el botón */
-#seeButton {
+/* Estilos para el botón (sales-manager)*/
+.seeButton {
   background-color: #85a1ee; /* Color celeste */
   color: #fff; /* Color de texto blanco */
   border: none;
@@ -254,8 +254,10 @@ padding-top: 30px;
   border-radius: 5px;
   cursor: pointer;
   transition: background-color 0.3s ease;
+  width: 100px;
+  margin-top: 2px;
 }
 
-#seeButton:hover {
+.seeButton:hover {
   background-color: #6ab7e6; /* Cambio de color al pasar el mouse */
 }

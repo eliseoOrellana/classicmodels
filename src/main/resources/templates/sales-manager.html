@@ -82,7 +82,7 @@
                         <td th:text="${employee.email}"></td>
                         <td th:text="${employee.office.country}"></td>
                         <td th:text="${supervisorName}"></td>
-                        <td> <a th:href="@{/employees/{id}(id=${employee.employeeNumber})}"><button id="seeButton" >see</button></a></td>
+                        <td> <a th:href="@{/employees/{id}(id=${employee.employeeNumber})}"><button class="seeButton" >see</button></a></td>
                     </tr>
                 </tbody>
             </table>

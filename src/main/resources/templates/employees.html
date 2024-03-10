@@ -70,14 +70,22 @@
                 <td th:if="${employee.jobTitle != null}" th:text="${employee.jobTitle}">Job title</td>
                 <td th:unless="${employee.jobTitle != null}">No job title assigned</td>
                 <td>
-                    <!-- Link to view more details of the employee -->
-                    
-                    <a th:href="@{/employees/{id}(id=${employee.employeeNumber})}">View</a>
-                    <a th:href="@{/employees-form/edit(id=${employee.employeeNumber})}">Edit</a>
-                     <!-- Link to delete employee (physical delete) -->
-                     <a id="DeleteLink" th:href="@{/employees/delete/{id}(id=${employee.employeeNumber})}">Delete</a>
-                     <!-- Link to soft delete employee -->
-                     <a id="softDeleteLink" th:href="@{/employees/soft-delete/{id}(id=${employee.employeeNumber})}" >Soft Delete</a>
+                        <!-- Botón "See" -->
+                        <a th:href="@{/employees/{id}(id=${employee.employeeNumber})}">
+                            <button class="seeButton">View</button>
+                        </a>
+                        <!-- Botón "Edit" -->
+                        <a th:href="@{/employees-form/edit(id=${employee.employeeNumber})}">
+                            <button class="seeButton">Edit</button>
+                        </a>
+                        <!-- Botón "Delete" -->
+                        <a id="DeleteLink" th:href="@{/employees/delete/{id}(id=${employee.employeeNumber})}">
+                            <button class="seeButton">Delete</button>
+                        </a>
+                        <!-- Botón "Soft Delete" -->
+                        <a id="softDeleteLink" th:href="@{/employees/soft-delete/{id}(id=${employee.employeeNumber})}">
+                            <button class="seeButton">Soft Delete</button>
+                        </a>
                 </td>
             </tr>
         </tbody>
