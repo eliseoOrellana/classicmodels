@@ -32,18 +32,6 @@
         <form action="/sales-manager/search" method="post">
             <div class="row mt-3 mb-5">
             
-                <!-- Sales Manager -->
-                <div class="col-3 mt-3">
-                    <label for="" class="form-label">Sales Manager</label>
-                    <select class="form-select" name="employeeNumber">
-                        <option value="0" selected>Select Sales Manager</option>
-                        <!-- Thymeleaf loop to populate options -->
-                        <option th:each="employee : ${allEmployees}" th:value="${employee.employeeNumber}">
-                            <span th:text="${employee.firstName} + ' ' + ${employee.lastName}"></span>
-                        </option>
-                    </select>
-                </div>
-        
                 <!-- Office -->
                 <div class="col-3 mt-3">
                     <label for="" class="form-label">Office</label>
@@ -52,6 +40,17 @@
                         <!-- Thymeleaf loop to populate options -->
                         <option th:each="office : ${allOffices}" th:value="${office}">
                             <span th:text="${office}"></span>
+                        </option>
+                    </select>
+                </div>
+                <!-- Sales Manager -->
+                <div class="col-3 mt-3">
+                    <label for="" class="form-label">Sales Manager</label>
+                    <select class="form-select" name="employeeNumber">
+                        <option value="0" selected>Select Sales Manager</option>
+                        <!-- Thymeleaf loop to populate options -->
+                        <option th:each="employee : ${allEmployees}" th:value="${employee.employeeNumber}">
+                            <span th:text="${employee.firstName} + ' ' + ${employee.lastName}"></span>
                         </option>
                     </select>
                 </div>
@@ -88,6 +87,12 @@
                 </tbody>
             </table>
         </div>
+    </div>
+
+    <div class="container-centered btn">
+        <a id="btnBack" href="/sales-manager" class="btn btn-outline-danger btn-go-to">
+            <i class="fas fa-arrow-left"></i> Back
+        </a>
     </div>
 
     <div th:replace="~{fragments/footer :: footer}"></div>
