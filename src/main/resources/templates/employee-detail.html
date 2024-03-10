@@ -29,7 +29,7 @@
     <h1 id="titulo">Employee detail</h1>
     
     <div class="container-centered">
-    <div class="per-card-1">
+    <div class="per-card-1 border-dark">
         <div class="card-image">
             <!-- imagen del empleado aquí -->
             <img src="/img/profile.png" alt="no employee image">
@@ -40,7 +40,6 @@
             <div class="card-title"> 
                 <strong> <span th:text="${employee.firstName + ' ' + employee.lastName}+ ' | ' +${employee.employeeNumber} "></span>
             </div>
-            
             <div class="per-position">
                 <span th:text="${employee.jobTitle}"></span>
             </div>
@@ -51,25 +50,30 @@
                 Extension: <span th:text="${employee.extension}"></span>
             </div>
             <div class="employeeReportsTo">
-                Report To: <span th:text="${employee.reportsTo}"></span>
+                <!-- Report To: <span th:text="${employee.reportsTo}"></span> -->
                 Report To: <span th:text="${supervisorName}"></span>
             </div>
         </strong>
-            <!-- Botones de redes sociales  -->
+            <!-- Botones de redes sociales  
             <div class="social-icons">
                 <a href="https://www.linkedin.com/" title="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
                 <a href="https://www.twitter.com/" title="Twitter"><i class="fab fa-twitter"></i></a>
                 <a href="https://www.facebook.com/" title="Facebook"><i class="fab fa-facebook-f"></i></a>
-            </div>
+            </div>-->
             <!-- Botón adicional -->
             <div class="card-btn">
                 <button type="button" title="Send Message">Send Message</button>
             </div>
         </div>
+        
     </div>
+    
 </div>
-    
-    
+<div class="container-centered btn">
+    <a id="btnBack" href="/sales-manager" class="btn btn-outline-danger btn-go-to">
+        <i class="fas fa-arrow-left"></i> Back
+    </a>
+</div>
     <div th:replace="~{fragments/footer :: footer}"></div>
 <!-- Bootstrap Bundle with Popper -->
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
