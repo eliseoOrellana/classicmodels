@@ -64,7 +64,7 @@ public class SalesManagerController {
         model.addAttribute("employees", employees);
         // envio  los datos del sales manager capturados con la querys creada.
         model.addAttribute("supervisorName", supervisorName);
-        System.out.println(supervisorName);
+        // System.out.println(supervisorName);
         return "sales-manager";
     }
 
