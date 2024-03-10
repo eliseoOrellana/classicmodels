@@ -20,8 +20,8 @@ import lombok.NoArgsConstructor;
 public class Employee {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "employeeNumber")
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer employeeNumber;
     
     @Column(name = "lastName", length = 50)
