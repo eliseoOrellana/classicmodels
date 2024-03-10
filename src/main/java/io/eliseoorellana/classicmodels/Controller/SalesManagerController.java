@@ -65,6 +65,12 @@ public class SalesManagerController {
         List<Employee> allEmployees = employeeService.getAllEmployees();
         List<String> allOffices = officeService.findDistinctCountries();
 
+        // Ordenar alfabéticamente la lista de oficinas
+        Collections.sort(allOffices);
+
+        // Ordenar la lista de empleados por el primer nombre
+        Collections.sort(allEmployees, Comparator.comparing(Employee::getFirstName));
+
         // Agregar los empleados, oficinas y resultados de la búsqueda al modelo
         model.addAttribute("allEmployees", allEmployees);
         model.addAttribute("allOffices", allOffices);
