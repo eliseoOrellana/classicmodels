@@ -46,8 +46,8 @@
 
         <div class="form-group">
             <label for="officeCountry">Office Country:</label>
-            <select class="form-control" id="officeCountry" th:field="*{country}">
-                <option th:each="country : ${officeCountries}" th:value="${officeCode}" th:text="${country}"></option> <!--revisar el value depues-->
+            <select class="form-control" id="officeCountry" th:field="*{office.country}">
+                <option th:each="country : ${officeCountries}" th:value="${country}" th:text="${country}"></option>
             </select>
         </div>
 

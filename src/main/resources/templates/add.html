@@ -47,20 +47,24 @@
         
         <label for="reportsTo">Reports To:</label>
         <select id="reportsTo" name="reportsTo" required>
+            <option value="" selected disabled>Select one</option>
             <option th:each="employee : ${employees}" th:value="${employee.employeeNumber}" th:text="${employee.firstName} + ' ' + ${employee.lastName} + ' - ' + ${employee.jobTitle}"></option>
         </select><br>
         
         <!-- <label for="reportsTo">Reports To:</label>
         <input type="text" id="reportsTo" name="reportsTo" required><br> -->
         
+        
         <label for="jobTitle">Job Title:</label>
-            <select id="jobTitle" name="jobTitle" required>
-                <option th:each="employee : ${employees}" th:value="${employee.jobTitle}" th:text="${employee.jobTitle}"></option>
-            </select><br>
+        <select id="jobTitle" name="jobTitle" required>
+            <option value="" selected disabled>Select one</option>
+            <option th:each="jobTitle : ${distinctJobTitles}" th:value="${employee.jobTitle}" th:text="${jobTitle}"></option>
+        </select>
         
         <label for="officeCode">Office Code:</label>
         <select id="officeCode" name="officeCode" required>
-            <option  type="text" th:each="office : ${officeCodes}" th:value="${office.officeCode}" th:text="${office.country} + ' - ' + ${office.city}"></option>
+            <option value="" selected disabled>Select one</option>
+            <option th:each="office : ${officeCodes}" th:value="${office.officeCode}" th:text="${office.country} + ' - ' + ${office.city}"></option>
         </select><br>
         <!--
         <label for="officeCode">Office Code:</label>

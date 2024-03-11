@@ -11,11 +11,11 @@
 
 
 #contact {
-	background:#000000;
+	background:#dddbdb; /* #302f2f; */
 	padding:25px;
 	margin:50px 0;
     border-radius: 8px;
-	color: white;
+	color: rgb(0, 0, 0);
 }
 
 
@@ -23,6 +23,7 @@
 	width:100%;
 	border:1px solid #CCC;
 	background:#FFF;
+	border-radius: 8px;
 	margin:0 0 5px;
 	padding:10px;
 }
