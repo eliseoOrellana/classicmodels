@@ -76,7 +76,9 @@ public class EmployeeController {
         Employee employee = employeeService.getEmployeeById(id);
         model.addAttribute("employee", employee);
         model.addAttribute("employees", employeeService.getAllEmployees());
-        model.addAttribute("officeCodes", officeService.getAllOffices());
+        model.addAttribute("distinctJobTitles", employeeService.findDistinctJobTitles());
+        // model.addAttribute("officeCodes", officeService.getAllOffices());
+        model.addAttribute("officeCountries", officeService.findDistinctCountries());
         return "edit";
     }
 

@@ -9,8 +9,6 @@ import org.springframework.stereotype.Service;
 import io.eliseoorellana.classicmodels.Repository.EmployeeRepository;
 import io.eliseoorellana.classicmodels.model.Employee;
 
-
-
 @Service
 public class EmployeeService {
 
@@ -22,14 +20,15 @@ public class EmployeeService {
     }
 
     // public List<Employee> getAllEmployees() {
-    //     return employeeRepository.findAll();
+    // return employeeRepository.findAll();
     // }
 
     public List<Employee> getAllEmployees() {
         try {
             return employeeRepository.findByDeletedFalse(); // Obtener empleados no eliminados lógicamente
         } catch (Exception e) {
-            // Manejar la excepción adecuadamente (registra el error, notifica al usuario, etc.)
+            // Manejar la excepción adecuadamente (registra el error, notifica al usuario,
+            // etc.)
             e.printStackTrace(); // Manejo básico de la excepción imprimiendo la traza en la consola
             return Collections.emptyList(); // Devolver una lista vacía en caso de error
         }
@@ -40,7 +39,8 @@ public class EmployeeService {
             Optional<Employee> employeeOptional = employeeRepository.findById(id);
             return employeeOptional.orElse(null);
         } catch (Exception e) {
-            // Manejar la excepción adecuadamente (registra el error, notifica al usuario, etc.)
+            // Manejar la excepción adecuadamente (registra el error, notifica al usuario,
+            // etc.)
             e.printStackTrace(); // Manejo básico de la excepción imprimiendo la traza en la consola
             return null; // Devolver null en caso de error
         }
@@ -50,7 +50,8 @@ public class EmployeeService {
         try {
             employeeRepository.save(employee);
         } catch (Exception e) {
-            // Manejar la excepción adecuadamente (registra el error, notifica al usuario, etc.)
+            // Manejar la excepción adecuadamente (registra el error, notifica al usuario,
+            // etc.)
             e.printStackTrace(); // Manejo básico de la excepción imprimiendo la traza en la consola
         }
     }
@@ -59,7 +60,8 @@ public class EmployeeService {
         try {
             employeeRepository.deleteById(id);
         } catch (Exception e) {
-            // Manejar la excepción adecuadamente (registra el error, notifica al usuario, etc.)
+            // Manejar la excepción adecuadamente (registra el error, notifica al usuario,
+            // etc.)
             e.printStackTrace(); // Manejo básico de la excepción imprimiendo la traza en la consola
         }
     }
@@ -75,8 +77,7 @@ public class EmployeeService {
             employeeRepository.save(employee);
         }
     }
-    
-    
+
     // public List<Employee> findEmployeesByOfficeAndJobTitle(Office office, String
     // jobTitle) {
     // return
@@ -84,19 +85,23 @@ public class EmployeeService {
     // jobTitle);
     // }
 
-// Método para obtener los vendedores basado en una consulta compuesta
-public List<Employee> listaVendedor(Integer idSM, String offCountry) {
-    try {
-        // Aquí simplemente llamamos al método en el repositorio Hibernate
-        return employeeRepository.listaVendedor(idSM, offCountry);
-    } catch (Exception e) {
-        e.printStackTrace();
-        return Collections.emptyList();
+    // Método para obtener los vendedores basado en una consulta compuesta
+    public List<Employee> listaVendedor(Integer idSM, String offCountry) {
+        try {
+            // Aquí simplemente llamamos al método en el repositorio Hibernate
+            return employeeRepository.listaVendedor(idSM, offCountry);
+        } catch (Exception e) {
+            e.printStackTrace();
+            return Collections.emptyList();
+        }
     }
-}
 
-public String getSupervisorName(Integer idSM) {
-    return employeeRepository.findSupervisorNameById(idSM);
-}
+    public String getSupervisorName(Integer idSM) {
+        return employeeRepository.findSupervisorNameById(idSM);
+    }
+
+    public List<String> findDistinctJobTitles() {
+        return employeeRepository.findDistinctJobTitles();
+    }
 
 }
