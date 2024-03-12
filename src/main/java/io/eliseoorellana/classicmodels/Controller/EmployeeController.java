@@ -8,7 +8,6 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
@@ -63,24 +62,47 @@ public class EmployeeController {
         return "redirect:/employees";
     }
 
-    @PutMapping("/{id}")
-    public String updateEmployee(@PathVariable("id") int id, Employee employee, RedirectAttributes redirectAttributes) {
-        employee.setEmployeeNumber(id);
-        employeeService.saveOrUpdate(employee);
-        redirectAttributes.addFlashAttribute("message", "Employee updated successfully!");
-        return "redirect:/employees";
-    }
+    // @PutMapping("/{id}")
+    // public String updateEmployee(@PathVariable("id") int id, Employee employee, RedirectAttributes redirectAttributes) {
+    //     employee.setEmployeeNumber(id);
+    //     employeeService.saveOrUpdate(employee);
+    //     redirectAttributes.addFlashAttribute("message", "Employee updated successfully!");
+    //     return "redirect:/employees";
+    // }
 
-    @GetMapping("/edit/{id}")
-    public String showEditEmployeeForm(@PathVariable("id") int id, Model model) {
-        Employee employee = employeeService.getEmployeeById(id);
-        model.addAttribute("employee", employee);
-        model.addAttribute("employees", employeeService.getAllEmployees());
-        model.addAttribute("distinctJobTitles", employeeService.findDistinctJobTitles());
-        // model.addAttribute("officeCodes", officeService.getAllOffices());
-        model.addAttribute("officeCountries", officeService.findDistinctCountries());
-        return "edit";
-    }
+    // @GetMapping("/edit/{id}")
+    // public String showEditEmployeeForm(@PathVariable("id") int id, Model model) {
+    //     Employee employee = employeeService.getEmployeeById(id);
+    //     model.addAttribute("employee", employee);
+    //     model.addAttribute("employees", employeeService.getAllEmployees());
+    //     model.addAttribute("distinctJobTitles", employeeService.findDistinctJobTitles());
+    //     // model.addAttribute("officeCodes", officeService.getAllOffices());
+    //     model.addAttribute("officeCountries", officeService.findDistinctCountries());
+    //     return "edit";
+    // }
+
+//--------------------------------------
+
+@GetMapping("/edit/{id}")
+public String showEditEmployeeForm(@PathVariable("id") int id, Model model) {
+    Employee employee = employeeService.getEmployeeById(id);
+    model.addAttribute("employee", employee);
+    model.addAttribute("employees", employeeService.getAllEmployees()); // Lista de empleados y cargos
+    model.addAttribute("officeCodes", officeService.getAllOffices()); // Lista de códigos de oficina con país y
+    model.addAttribute("distinctJobTitles", employeeService.findDistinctJobTitles());
+    return "edit";
+}
+
+@PostMapping("/edit/{id}")
+public String updateEmployee(@PathVariable("id") int id, Employee employee, RedirectAttributes redirectAttributes) {
+    employee.setEmployeeNumber(id);
+    employeeService.saveOrUpdate(employee);
+    redirectAttributes.addFlashAttribute("message", "Employee updated successfully!");
+    return "redirect:/employees";
+}
+
+//--------------------------
+
 
     @GetMapping("/delete/{employeeNumber}")
     public String deleteEmployee(@PathVariable("employeeNumber") Integer employeeNumber) {

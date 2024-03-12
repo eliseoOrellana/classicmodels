@@ -15,6 +15,7 @@
  <link href="/css/style.css" rel="stylesheet">
  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11">
  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+ <link href="/css/addStyle.css" rel="stylesheet">
 </head>
 <body id="home">
 
@@ -25,50 +26,75 @@
    <div th:replace="~{fragments/navbar :: navbar}"></div>
 
     <h2 id="titulo">Edit Employee</h2>
-    <form th:action="@{/employees/{id}(id=${employee.employeeNumber})}" th:object="${employee}" method="post">
-        
-        <input type="hidden" th:field="*{employeeNumber}"/>
+
+    
+    <form  id="contact" method="post" th:action="@{/employees/edit/{id}(id=${employee.employeeNumber})}" class="border-dark" >
+        <div class="form-group">
+            <label for="lastName">Last Name:</label>
+            <input type="text" id="lastName" name="lastName" class="form-control" th:value="${employee.lastName}">
+        </div>
         
         <div class="form-group">
             <label for="firstName">First Name:</label>
-            <input type="text" class="form-control" id="firstName" th:field="*{firstName}" />
+            <input type="text" id="firstName" name="firstName" class="form-control" th:value="${employee.firstName}">
         </div>
-
+        
         <div class="form-group">
-            <label for="lastName">Last Name:</label>
-            <input type="text" class="form-control" id="lastName" th:field="*{lastName}" />
+            <label for="extension">Extension:</label>
+            <input type="text" id="extension" name="extension" class="form-control" th:value="${employee.extension}">
         </div>
-
+        
         <div class="form-group">
             <label for="email">Email:</label>
-            <input type="email" class="form-control" id="email" th:field="*{email}" />
+            <input type="email" id="email" name="email" class="form-control" th:value="${employee.email}">
         </div>
 
         <div class="form-group">
-            <label for="officeCountry">Office Country:</label>
-            <select class="form-control" id="officeCountry" th:field="*{office.country}">
-                <option th:each="country : ${officeCountries}" th:value="${country}" th:text="${country}"></option>
+            <label for="officeCode">Office:</label>
+            <select class="form-control" id="officeCode" name="officeCode">
+                <option value="">Select Office</option>
+                <option th:each="office : ${officeCodes}" 
+                        th:value="${office.officeCode}" 
+                        th:selected="${office.officeCode == employee.office.officeCode}"
+                        th:text="${office.city + ', ' + office.country}">
+                </option>
             </select>
         </div>
-
+        
+        
         <div class="form-group">
             <label for="reportsTo">Manager:</label>
-            <select class="form-control" id="reportsTo" th:field="*{reportsTo}">
-                <option th:each="employee : ${employees}" th:value="${reportsTo}"
-                        th:text="${employee.firstName + ' ' + employee.lastName}"></option>  <!--revisar el value depues-->
+            <select class="form-control" id="reportsTo" name="reportsTo">
+                <option value="">Select Manager</option>
+                <option th:each="emp : ${employees}" 
+                        th:value="${emp.employeeNumber}" 
+                        th:selected="${emp.employeeNumber == employee.reportsTo}"
+                        th:text="${emp.firstName + ' ' + emp.lastName}"></option>
             </select>
         </div>
-
-        
         
         <div class="form-group">
             <label for="jobTitle">Job Title:</label>
-            <select class="form-control" id="jobTitle" th:field="*{jobTitle}">
-                <option th:each="jobTitle : ${distinctJobTitles}" th:value="${jobTitle}" th:text="${jobTitle}"></option>
+            <select class="form-control" id="jobTitle" name="jobTitle">
+                <option value="">Select Job Title</option> 
+                <option th:each="title : ${distinctJobTitles}" 
+                        th:value="${title}" 
+                        th:selected="${title == employee.jobTitle}"
+                        th:text="${title}"></option>
             </select>
         </div>
-        <button type="submit" class="btn btn-primary">Submit</button>
+        
+        <div class="container-centered btn">
+            <button type="submit" class="btn btn-outline-danger btn-go-to">Update</button>
+        </div>
     </form>
+
+</div>
+
+<div class="container-centered btn">
+    <a id="btnBack" href="/employees" class="btn btn-outline-danger btn-go-to">
+        <i class="fas fa-arrow-left"></i> Back
+    </a>
 </div>
 
 <div th:replace="~{fragments/footer :: footer}"></div>

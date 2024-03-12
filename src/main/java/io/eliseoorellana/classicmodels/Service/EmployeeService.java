@@ -55,19 +55,15 @@ public class EmployeeService {
             e.printStackTrace(); // Manejo básico de la excepción imprimiendo la traza en la consola
         }
     }
-
-    public void delete(int id) {
+    
+    public void deleteEmployee(Integer employeeNumber) {
         try {
-            employeeRepository.deleteById(id);
+            employeeRepository.deleteById(employeeNumber);
         } catch (Exception e) {
             // Manejar la excepción adecuadamente (registra el error, notifica al usuario,
             // etc.)
             e.printStackTrace(); // Manejo básico de la excepción imprimiendo la traza en la consola
         }
-    }
-
-    public void deleteEmployee(Integer employeeNumber) {
-        employeeRepository.deleteById(employeeNumber);
     }
 
     public void softDeleteEmployee(Integer employeeNumber) {
@@ -78,8 +74,7 @@ public class EmployeeService {
         }
     }
 
-    // public List<Employee> findEmployeesByOfficeAndJobTitle(Office office, String
-    // jobTitle) {
+    // public List<Employee> findEmployeesByOfficeAndJobTitle(Office office, String jobTitle) {
     // return
     // employeeRepository.findByOfficeAndJobTitleOrderByFirstNameAscLastNameAsc(office,
     // jobTitle);

@@ -28,4 +28,6 @@ public interface EmployeeRepository extends JpaRepository<Employee, Integer> {
     @Query("SELECT DISTINCT e.jobTitle FROM Employee e")
     List<String> findDistinctJobTitles();
 
+    List<Employee> findByReportsTo(int id);
+
 }
