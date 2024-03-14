@@ -104,16 +104,36 @@ public String updateEmployee(@PathVariable("id") int id, Employee employee, Redi
 //--------------------------
 
 
+    // @GetMapping("/delete/{employeeNumber}")
+    // public String deleteEmployee(@PathVariable("employeeNumber") Integer employeeNumber) {
+    //     employeeService.deleteEmployee(employeeNumber);
+    //     return "redirect:/employees";
+    // }
+
+    // @GetMapping("/soft-delete/{employeeNumber}")
+    // public String softDeleteEmployee(@PathVariable("employeeNumber") Integer employeeNumber) {
+    //     employeeService.softDeleteEmployee(employeeNumber);
+    //     return "redirect:/employees";
+    // }
     @GetMapping("/delete/{employeeNumber}")
-    public String deleteEmployee(@PathVariable("employeeNumber") Integer employeeNumber) {
-        employeeService.deleteEmployee(employeeNumber);
+    public String deleteEmployee(@PathVariable("employeeNumber") Integer employeeNumber, RedirectAttributes redirectAttributes) {
+        try {
+            employeeService.deleteEmployee(employeeNumber);
+            redirectAttributes.addFlashAttribute("message", "Employee deleted successfully!");
+        } catch (Exception e) {
+            redirectAttributes.addFlashAttribute("error", "An error occurred while deleting the employee.");
+        }
         return "redirect:/employees";
     }
 
     @GetMapping("/soft-delete/{employeeNumber}")
-    public String softDeleteEmployee(@PathVariable("employeeNumber") Integer employeeNumber) {
-        employeeService.softDeleteEmployee(employeeNumber);
+    public String softDeleteEmployee(@PathVariable("employeeNumber") Integer employeeNumber, RedirectAttributes redirectAttributes) {
+        try {
+            employeeService.softDeleteEmployee(employeeNumber);
+            redirectAttributes.addFlashAttribute("message", "Employee soft-deleted successfully!");
+        } catch (Exception e) {
+            redirectAttributes.addFlashAttribute("error", "An error occurred while soft-deleting the employee.");
+        }
         return "redirect:/employees";
     }
-
 }

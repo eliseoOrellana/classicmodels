@@ -6,39 +6,42 @@ setTimeout(function() {
 
 
 
-document.getElementById('DeleteLink').addEventListener('click', function(event) {
-    event.preventDefault(); // Prevenir que el enlace se ejecute automáticamente
-    
-    Swal.fire({
-        title: 'Are you sure?',
-        text: 'Are you sure you want to delete this employee permanently?',
-        icon: 'warning',
-        showCancelButton: true,
-        confirmButtonText: 'Yes, delete it!',
-        cancelButtonText: 'Cancel'
-    }).then((result) => {
-        if (result.isConfirmed) {
-            // Si el usuario confirma, se redirige al enlace de eliminación
-            window.location.href = event.target.href;
-        }
+document.querySelectorAll('.deleteLink').forEach(function(link) {
+    link.addEventListener('click', function(event) {
+        event.preventDefault(); // Prevenir que el enlace se ejecute automáticamente
+        
+        Swal.fire({
+            title: 'Are you sure?',
+            text: 'Are you sure you want to delete this employee permanently?',
+            icon: 'warning',
+            showCancelButton: true,
+            confirmButtonText: 'Yes, delete it!',
+            cancelButtonText: 'Cancel'
+        }).then((result) => {
+            if (result.isConfirmed) {
+                // Si el usuario confirma, se redirige al enlace de eliminación
+                window.location.href = this.getAttribute('href');
+            }
+        });
     });
 });
 
-
-document.getElementById('softDeleteLink').addEventListener('click', function(event) {
-    event.preventDefault(); // Prevenir que el enlace se ejecute automáticamente
-    
-    Swal.fire({
-        title: 'Are you sure?',
-        text: 'Are you sure you want to soft delete this employee?',
-        icon: 'warning',
-        showCancelButton: true,
-        confirmButtonText: 'Yes, soft delete it!',
-        cancelButtonText: 'Cancel'
-    }).then((result) => {
-        if (result.isConfirmed) {
-            // Si el usuario confirma, se redirige al enlace de eliminación
-            window.location.href = event.target.href;
-        }
+document.querySelectorAll('.softDeleteLink').forEach(function(link) {
+    link.addEventListener('click', function(event) {
+        event.preventDefault(); // Prevenir que el enlace se ejecute automáticamente
+        
+        Swal.fire({
+            title: 'Are you sure?',
+            text: 'Are you sure you want to soft delete this employee?',
+            icon: 'warning',
+            showCancelButton: true,
+            confirmButtonText: 'Yes, soft delete it!',
+            cancelButtonText: 'Cancel'
+        }).then((result) => {
+            if (result.isConfirmed) {
+                // Si el usuario confirma, se redirige al enlace de soft delete
+                window.location.href = this.getAttribute('href');
+            }
+        });
     });
 });

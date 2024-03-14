@@ -8,6 +8,9 @@ import org.springframework.stereotype.Service;
 
 import io.eliseoorellana.classicmodels.Repository.EmployeeRepository;
 import io.eliseoorellana.classicmodels.model.Employee;
+import jakarta.persistence.EntityManager;
+import jakarta.persistence.PersistenceContext;
+import jakarta.transaction.Transactional;
 
 @Service
 public class EmployeeService {
@@ -18,6 +21,9 @@ public class EmployeeService {
         this.employeeRepository = employeeRepository;
 
     }
+
+    @PersistenceContext
+    private EntityManager entityManager;
 
     // public List<Employee> getAllEmployees() {
     // return employeeRepository.findAll();
@@ -55,24 +61,51 @@ public class EmployeeService {
             e.printStackTrace(); // Manejo básico de la excepción imprimiendo la traza en la consola
         }
     }
-    
-    public void deleteEmployee(Integer employeeNumber) {
+
+    @Transactional
+    public void deleteEmployee(int employeeNumber) {
         try {
-            employeeRepository.deleteById(employeeNumber);
+            employeeRepository.updateReportsToToNull(employeeNumber);
+            employeeRepository.deleteByEmployeeNumber(employeeNumber);
         } catch (Exception e) {
-            // Manejar la excepción adecuadamente (registra el error, notifica al usuario,
-            // etc.)
-            e.printStackTrace(); // Manejo básico de la excepción imprimiendo la traza en la consola
+            // Manejar excepciones
+            e.printStackTrace(); // Imprimir la excepción para fines de depuración
         }
     }
 
-    public void softDeleteEmployee(Integer employeeNumber) {
-        Employee employee = employeeRepository.findById(employeeNumber).orElse(null);
-        if (employee != null) {
-            employee.setDeleted(true);
-            employeeRepository.save(employee);
+    @Transactional
+    public void softDeleteEmployee(int employeeNumber) {
+        try {
+            Employee employee = employeeRepository.findById(employeeNumber).orElse(null);
+            if (employee != null) {
+                employee.setDeleted(true);
+                employeeRepository.save(employee);
+            }
+        } catch (Exception e) {
+            // Manejar excepciones
+            e.printStackTrace(); // Imprimir la excepción para fines de depuración
         }
     }
+
+
+    
+    // public void deleteEmployee(Integer employeeNumber) {
+    //     try {
+    //         employeeRepository.deleteById(employeeNumber);
+    //     } catch (Exception e) {
+    //         // Manejar la excepción adecuadamente (registra el error, notifica al usuario,
+    //         // etc.)
+    //         e.printStackTrace(); // Manejo básico de la excepción imprimiendo la traza en la consola
+    //     }
+    // }
+
+    // public void softDeleteEmployee(Integer employeeNumber) {
+    //     Employee employee = employeeRepository.findById(employeeNumber).orElse(null);
+    //     if (employee != null) {
+    //         employee.setDeleted(true);
+    //         employeeRepository.save(employee);
+    //     }
+    // }
 
     // public List<Employee> findEmployeesByOfficeAndJobTitle(Office office, String jobTitle) {
     // return
