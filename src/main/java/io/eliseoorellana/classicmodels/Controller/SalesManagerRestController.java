@@ -21,8 +21,6 @@ public class SalesManagerRestController {
         this.employeeService = employeeService;
     }
 
-    // @Autowired private EmployeeService employeeService;
-
     @GetMapping("/api/salesManager")
     
     // para testear ruta: http://localhost:8080/api/salesManager?officeCode=USA&salesManagerId=1143
