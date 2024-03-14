@@ -19,8 +19,9 @@ public class SalesManagerRestController {
     private EmployeeService employeeService;
 
     @GetMapping("/api/salesManager")
-    // para testear ruta.
-    // http://localhost:8080/api/salesManager?officeCode=USA&salesManagerId=1143
+    
+    // para testear ruta: http://localhost:8080/api/salesManager?officeCode=USA&salesManagerId=1143
+    
     public ResponseEntity<List<Employee>> getSalesManagerRest(
             @RequestParam(required = false) String officeCode,
             @RequestParam(required = false) Integer salesManagerId) {

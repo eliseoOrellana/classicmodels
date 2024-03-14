@@ -58,5 +58,4 @@ public class Customer {
     @Column(name = "creditLimit")
     private Double creditLimit;
 
-
 }

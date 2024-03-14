@@ -20,35 +20,29 @@
 <body id="home">
   <div class="container-fluid">
     
-      <!-- Incluir el navbar -->
-
-   <div th:replace="~{fragments/navbar :: navbar}"></div>
+    <!-- Incluir el navbar -->
+    <div th:replace="~{fragments/navbar :: navbar}"></div>
 
     <h1 id="titulo">List employees</h1>
 
-    <!-- <a href="/employees/add">Add New Employee</a>  Enlace para agregar un nuevo empleado 
-    <div th:text="${message}"></div>  Mensaje de éxito o error 
-    -->
-   
-<div id="btnAdd" class="text-center">
-    <div class="">
-        <button type="submit" class="btn btn-outline-danger btn-go-to"><a href="/employees/add">Add New Employee</a> <i class="fa-solid fa-magnifying-glass fas fa-plus"></i></button>
-    </div>
+    <div id="btnAdd" class="text-center">
+        <div class="">
+            <button type="submit" class="btn btn-outline-danger btn-go-to"><a href="/employees/add">Add New Employee</a> <i class="fa-solid fa-magnifying-glass fas fa-plus"></i></button>
+        </div>
     
     <!-- Mensaje de éxito o error -->
-    
-    <div id="message" th:if="${message}" class="alert alert-success alert-dismissible fade show" role="alert">
-        <p th:text="${message}"></p>
-        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-    </div>
-    <div id="message" th:if="${error}" class="alert alert-danger alert-dismissible fade show" role="alert">
+        <div id="message" th:if="${message}" class="alert alert-success alert-dismissible fade show" role="alert">
+            <p th:text="${message}"></p>
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+        </div>
+        <div id="message" th:if="${error}" class="alert alert-danger alert-dismissible fade show" role="alert">
         <p th:text="${error}"></p>
         <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+        </div>
     </div>
-</div>
-   
 
- <div id="employeesdiv">
+
+<div id="employeesdiv">
     <table class="table table-striped" id="employees">
         <thead>
             <tr>
@@ -93,7 +87,7 @@
                         <a class="deleteLink" th:href="@{/employees/delete/{id}(id=${employee.employeeNumber})}">
                             <button class="seeButton">Delete</button>
                         </a>
-                        
+                        <!-- Botón "soft Delete" -->
                         <a class="softDeleteLink" th:href="@{/employees/soft-delete/{id}(id=${employee.employeeNumber})}">
                             <button class="seeButton">Soft Delete</button>
                         </a>

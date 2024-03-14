@@ -25,18 +25,13 @@ public class EmployeeService {
     @PersistenceContext
     private EntityManager entityManager;
 
-    // public List<Employee> getAllEmployees() {
-    // return employeeRepository.findAll();
-    // }
-
     public List<Employee> getAllEmployees() {
         try {
             return employeeRepository.findByDeletedFalse(); // Obtener empleados no eliminados lógicamente
         } catch (Exception e) {
-            // Manejar la excepción adecuadamente (registra el error, notifica al usuario,
-            // etc.)
-            e.printStackTrace(); // Manejo básico de la excepción imprimiendo la traza en la consola
-            return Collections.emptyList(); // Devolver una lista vacía en caso de error
+            // Manejar de excepción adecuadamente 
+            e.printStackTrace(); 
+            return Collections.emptyList(); 
         }
     }
 
@@ -44,11 +39,9 @@ public class EmployeeService {
         try {
             Optional<Employee> employeeOptional = employeeRepository.findById(id);
             return employeeOptional.orElse(null);
-        } catch (Exception e) {
-            // Manejar la excepción adecuadamente (registra el error, notifica al usuario,
-            // etc.)
-            e.printStackTrace(); // Manejo básico de la excepción imprimiendo la traza en la consola
-            return null; // Devolver null en caso de error
+        } catch (Exception e) { 
+            e.printStackTrace(); 
+            return null; 
         }
     }
 
@@ -56,9 +49,7 @@ public class EmployeeService {
         try {
             employeeRepository.save(employee);
         } catch (Exception e) {
-            // Manejar la excepción adecuadamente (registra el error, notifica al usuario,
-            // etc.)
-            e.printStackTrace(); // Manejo básico de la excepción imprimiendo la traza en la consola
+            e.printStackTrace(); 
         }
     }
 
@@ -86,32 +77,6 @@ public class EmployeeService {
             e.printStackTrace(); // Imprimir la excepción para fines de depuración
         }
     }
-
-
-    
-    // public void deleteEmployee(Integer employeeNumber) {
-    //     try {
-    //         employeeRepository.deleteById(employeeNumber);
-    //     } catch (Exception e) {
-    //         // Manejar la excepción adecuadamente (registra el error, notifica al usuario,
-    //         // etc.)
-    //         e.printStackTrace(); // Manejo básico de la excepción imprimiendo la traza en la consola
-    //     }
-    // }
-
-    // public void softDeleteEmployee(Integer employeeNumber) {
-    //     Employee employee = employeeRepository.findById(employeeNumber).orElse(null);
-    //     if (employee != null) {
-    //         employee.setDeleted(true);
-    //         employeeRepository.save(employee);
-    //     }
-    // }
-
-    // public List<Employee> findEmployeesByOfficeAndJobTitle(Office office, String jobTitle) {
-    // return
-    // employeeRepository.findByOfficeAndJobTitleOrderByFirstNameAscLastNameAsc(office,
-    // jobTitle);
-    // }
 
     // Método para obtener los vendedores basado en una consulta compuesta
     public List<Employee> listaVendedor(Integer idSM, String offCountry) {

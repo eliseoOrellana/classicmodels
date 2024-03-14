@@ -18,7 +18,7 @@ public interface EmployeeRepository extends JpaRepository<Employee, Integer> {
 
     // Método para obtener una lista de empleados basada en un gerente de ventas y
     // un país de oficina
-    // Aquí agregamos el método para la consulta compuesta
+
     @Query("SELECT e FROM Employee e INNER JOIN e.office o WHERE e.reportsTo = :idSM AND o.country = :offCountry")
     List<Employee> listaVendedor(Integer idSM, String offCountry);
 
@@ -41,6 +41,5 @@ public interface EmployeeRepository extends JpaRepository<Employee, Integer> {
     @Modifying
     @Query("DELETE FROM Employee e WHERE e.employeeNumber = :employeeNumber")
     void deleteByEmployeeNumber(@Param("employeeNumber") Integer employeeNumber);
-
 
 }

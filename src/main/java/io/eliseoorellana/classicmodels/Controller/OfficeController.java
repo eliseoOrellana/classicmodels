@@ -1,8 +1,5 @@
 package io.eliseoorellana.classicmodels.Controller;
 
-
-
-
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.DeleteMapping;
@@ -25,18 +22,12 @@ private final OfficeService officeService;
         this.officeService = officeService;
     }
 
-    // @GetMapping
-    // public List<Office> getAllOffices() {
-    //     return officeService.getAllOffices();
-    // }
-
     @GetMapping
     public String getAllOffices(Model model) {
         model.addAttribute("offices", officeService.getAllOffices());
         
         return "employees";
     }
-
 
     @GetMapping("/{officeCode}")
     public Office getOfficeByCode(@PathVariable String officeCode) {

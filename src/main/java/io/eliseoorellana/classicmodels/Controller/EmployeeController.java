@@ -64,33 +64,12 @@ public class EmployeeController {
         
     }
 
-    // @PutMapping("/{id}")
-    // public String updateEmployee(@PathVariable("id") int id, Employee employee, RedirectAttributes redirectAttributes) {
-    //     employee.setEmployeeNumber(id);
-    //     employeeService.saveOrUpdate(employee);
-    //     redirectAttributes.addFlashAttribute("message", "Employee updated successfully!");
-    //     return "redirect:/employees";
-    // }
-
-    // @GetMapping("/edit/{id}")
-    // public String showEditEmployeeForm(@PathVariable("id") int id, Model model) {
-    //     Employee employee = employeeService.getEmployeeById(id);
-    //     model.addAttribute("employee", employee);
-    //     model.addAttribute("employees", employeeService.getAllEmployees());
-    //     model.addAttribute("distinctJobTitles", employeeService.findDistinctJobTitles());
-    //     // model.addAttribute("officeCodes", officeService.getAllOffices());
-    //     model.addAttribute("officeCountries", officeService.findDistinctCountries());
-    //     return "edit";
-    // }
-
-//--------------------------------------
-
 @GetMapping("/edit/{id}")
 public String showEditEmployeeForm(@PathVariable("id") int id, Model model) {
     Employee employee = employeeService.getEmployeeById(id);
     model.addAttribute("employee", employee);
-    model.addAttribute("employees", employeeService.getAllEmployees()); // Lista de empleados y cargos
-    model.addAttribute("officeCodes", officeService.getAllOffices()); // Lista de códigos de oficina con país y
+    model.addAttribute("employees", employeeService.getAllEmployees()); 
+    model.addAttribute("officeCodes", officeService.getAllOffices()); 
     model.addAttribute("distinctJobTitles", employeeService.findDistinctJobTitles());
     return "edit";
 }
@@ -103,20 +82,6 @@ public String updateEmployee(@PathVariable("id") int id, Employee employee, Redi
     return "redirect:/employees";
 }
 
-//--------------------------
-
-
-    // @GetMapping("/delete/{employeeNumber}")
-    // public String deleteEmployee(@PathVariable("employeeNumber") Integer employeeNumber) {
-    //     employeeService.deleteEmployee(employeeNumber);
-    //     return "redirect:/employees";
-    // }
-
-    // @GetMapping("/soft-delete/{employeeNumber}")
-    // public String softDeleteEmployee(@PathVariable("employeeNumber") Integer employeeNumber) {
-    //     employeeService.softDeleteEmployee(employeeNumber);
-    //     return "redirect:/employees";
-    // }
     @GetMapping("/delete/{employeeNumber}")
     public String deleteEmployee(@PathVariable("employeeNumber") Integer employeeNumber, RedirectAttributes redirectAttributes) {
         try {

@@ -21,10 +21,9 @@
 <body id="home">
 
     
-      <!-- Incluir el navbar -->
+    <!-- Incluir el navbar -->
+    <div th:replace="~{fragments/navbar :: navbar}"></div>
 
-   <div th:replace="~{fragments/navbar :: navbar}"></div>
-   
 
     <h1 id="titulo">Employee detail</h1>
     
@@ -50,17 +49,14 @@
                 Extension: <span th:text="${employee.extension}"></span>
             </div>
             <div class="employeeReportsTo">
-                <!-- Report To: <span th:text="${employee.reportsTo}"></span> -->
                 Report To: <span th:text="${supervisorName}"></span>
             </div>
         </strong>
-            <!-- Botones de redes sociales  
             <div class="social-icons">
-                <a href="https://www.linkedin.com/" title="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
-                <a href="https://www.twitter.com/" title="Twitter"><i class="fab fa-twitter"></i></a>
-                <a href="https://www.facebook.com/" title="Facebook"><i class="fab fa-facebook-f"></i></a>
-            </div>-->
-            <!-- Botón adicional -->
+                <a href="https://www.linkedin.com/" title="LinkedIn" target="_blank"><i class="fab fa-linkedin-in"></i></a>
+                <a href="https://www.gmail.com/" title="Twitter" target="_blank"><i class="fas fa-envelope" ></i></a>
+                
+            </div>
             <div class="card-btn">
                 <button type="button" title="Send Message">Send Message</button>
             </div>
@@ -90,8 +86,6 @@ src="https://cdn.datatables.net/v/bs4/dt-1.10.25/datatables.min.js"></script>
 <!-- DataTables DateTime plugin JS -->
 <script type="text/javascript"
 src="https://cdn.datatables.net/datetime/1.1.0/js/dataTables.dateTime.min.js"></script>
-
-
 
 
 </body>

@@ -20,71 +20,56 @@
 </head>
 <body id="home">
     
-      <!-- Incluir el navbar -->
-
-   <div th:replace="~{fragments/navbar :: navbar}"></div>
+    <!-- Incluir el navbar -->
+    <div th:replace="~{fragments/navbar :: navbar}"></div>
 
 
     <div class="container">  
-    <div class="text-center">
-    <h2 id="titulo">Add Employee</h2>
-</div>
-    <form id="contact" action="/employees/add" method="post" class="border-dark">
-       <!-- <label for="employeeNumber">Employee Number:</label>
-        <input type="number" id="employeeNumber" name="employeeNumber" ><br>-->
+        <div class="text-center">
+            <h2 id="titulo">Add Employee</h2>
+        </div>
+        <form id="contact" action="/employees/add" method="post" class="border-dark">
         
-        <label for="lastName">Last Name:</label>
-        <input type="text" id="lastName" name="lastName" required><br>
+            <label for="lastName">Last Name:</label>
+            <input type="text" id="lastName" name="lastName" required><br>
         
-        <label for="firstName">First Name:</label>
-        <input type="text" id="firstName" name="firstName" required><br>
+            <label for="firstName">First Name:</label>
+            <input type="text" id="firstName" name="firstName" required><br>
         
-        <label for="extension">Extension:</label>
-        <input type="number" id="extension" name="extension" required><br>
+            <label for="extension">Extension:</label>
+            <input type="number" id="extension" name="extension" required><br>
         
-        <label for="email">Email:</label>
-        <input type="text" id="email" name="email" required><br>
+            <label for="email">Email:</label>
+            <input type="text" id="email" name="email" required><br>
         
-        <label for="reportsTo">Reports To:</label>
-        <select id="reportsTo" name="reportsTo" required>
-            <option value="" selected disabled>Select one</option>
-            <option th:each="employee : ${employees}" th:value="${employee.employeeNumber}" th:text="${employee.firstName} + ' ' + ${employee.lastName} + ' - ' + ${employee.jobTitle}"></option>
-        </select><br>
+            <label for="reportsTo">Reports To:</label>
+            <select id="reportsTo" name="reportsTo" required>
+                <option value="" selected disabled>Select one</option>
+                <option th:each="employee : ${employees}" th:value="${employee.employeeNumber}" th:text="${employee.firstName} + ' ' + ${employee.lastName} + ' - ' + ${employee.jobTitle}"></option>
+            </select><br>
         
-        <!-- <label for="reportsTo">Reports To:</label>
-        <input type="text" id="reportsTo" name="reportsTo" required><br> -->
+            <label for="jobTitle">Job Title:</label>
+            <select id="jobTitle" name="jobTitle" required>
+                <option value="" selected disabled>Select one2</option>
+                <option th:each="jobTitle : ${distinctJobTitles}" th:value="${jobTitle}" th:text="${jobTitle}"></option>
+            </select>
         
+            <label for="officeCode">Office Code:</label>
+            <select id="officeCode" name="officeCode" required>
+                <option value="" selected disabled>Select one</option>
+                <option th:each="office : ${officeCodes}" th:value="${office.officeCode}" th:text="${office.country} + ' - ' + ${office.city}"></option>
+            </select><br>
         
-        <!--<label for="jobTitle">Job Title:</label>
-        <select id="jobTitle" name="jobTitle" required>
-            <option value="" selected disabled>Select one</option>
-            <option th:each="jobTitle : ${distinctJobTitles}" th:value="${employee.jobTitle}" th:text="${jobTitle}"></option>
-        </select>-->
-        <label for="jobTitle">Job Title:</label>
-        <select id="jobTitle" name="jobTitle" required>
-            <option value="" selected disabled>Select one2</option>
-            <option th:each="jobTitle : ${distinctJobTitles}" th:value="${jobTitle}" th:text="${jobTitle}"></option>
-        </select>
-        
-        <label for="officeCode">Office Code:</label>
-        <select id="officeCode" name="officeCode" required>
-            <option value="" selected disabled>Select one</option>
-            <option th:each="office : ${officeCodes}" th:value="${office.officeCode}" th:text="${office.country} + ' - ' + ${office.city}"></option>
-        </select><br>
-        <!--
-        <label for="officeCode">Office Code:</label>
-        <input type="number" id="officeCode" name="officeCode"required><br>
-        -->
-        <button type="submit" value="Submit"  class="btn btn-outline-danger btn-go-to"> Submit <i class="fa-solid fa-magnifying-glass fas fa-plus"></i></button>
-    </form>
+            <button type="submit" value="Submit"  class="btn btn-outline-danger btn-go-to"> Submit <i class="fa-solid fa-magnifying-glass fas fa-plus"></i></button>
+        </form>
 
-</div>
+    </div>
 
-<div class="container-centered btn">
-    <a id="btnBack" href="/employees" class="btn btn-outline-danger btn-go-to">
-        <i class="fas fa-arrow-left"></i> Back
-    </a>
-</div>
+    <div class="container-centered btn">
+        <a id="btnBack" href="/employees" class="btn btn-outline-danger btn-go-to">
+            <i class="fas fa-arrow-left"></i> Back
+        </a>
+    </div>
 
 
 

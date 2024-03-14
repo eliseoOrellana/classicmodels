@@ -23,9 +23,9 @@
 
 <body  id="home">
     
-      <!-- Incluir el navbar -->
-
-   <div th:replace="~{fragments/navbar :: navbar}"></div>
+    <!-- Incluir el navbar -->
+    <div th:replace="~{fragments/navbar :: navbar}"></div>
+    
     <div  class="container-lg mb-3 ">
         <h1 id="titulo" class="mt-3">Seller Management</h1>
         
@@ -37,7 +37,6 @@
                     <label for="" class="form-label">Office</label>
                     <select class="form-select" name="officeCode">
                         <option value="0" selected>Select Office</option>
-                        <!-- Thymeleaf loop to populate options -->
                         <option th:each="office : ${allOffices}" th:value="${office}">
                             <span th:text="${office}"></span>
                         </option>
@@ -48,7 +47,6 @@
                     <label for="" class="form-label">Sales Manager</label>
                     <select class="form-select" name="employeeNumber">
                         <option value="0" selected>Select Sales Manager</option>
-                        <!-- Thymeleaf loop to populate options -->
                         <option th:each="employee : ${allEmployees}" th:value="${employee.employeeNumber}">
                             <span th:text="${employee.firstName} + ' ' + ${employee.lastName}"></span>
                         </option>
@@ -75,7 +73,6 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <!-- Thymeleaf loop to populate table rows with search results -->
                     <tr th:each="employee : ${employees}">
                         <td th:text="${employee.employeeNumber}"></td>
                         <td th:text="${employee.firstName + ' ' + employee.lastName}"></td>
