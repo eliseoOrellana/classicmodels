@@ -1,22 +1,27 @@
-package io.eliseoorellana.classicmodels.Controller;
+package io.eliseoorellana.classicmodels.controller;
 
 import java.util.List;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
-import io.eliseoorellana.classicmodels.Service.EmployeeService;
 import io.eliseoorellana.classicmodels.model.Employee;
+import io.eliseoorellana.classicmodels.service.EmployeeService;
 
 @RestController
 public class SalesManagerRestController {
 
-    @Autowired
-    private EmployeeService employeeService;
+    private final EmployeeService employeeService;
+
+    // Constructor con inyección de dependencias
+    public SalesManagerRestController(EmployeeService employeeService) {
+        this.employeeService = employeeService;
+    }
+
+    // @Autowired private EmployeeService employeeService;
 
     @GetMapping("/api/salesManager")
     

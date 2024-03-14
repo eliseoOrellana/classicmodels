@@ -1,4 +1,4 @@
-package io.eliseoorellana.classicmodels.Service;
+package io.eliseoorellana.classicmodels.service;
 
 import java.util.Collections;
 import java.util.List;
@@ -6,8 +6,8 @@ import java.util.Optional;
 
 import org.springframework.stereotype.Service;
 
-import io.eliseoorellana.classicmodels.Repository.EmployeeRepository;
 import io.eliseoorellana.classicmodels.model.Employee;
+import io.eliseoorellana.classicmodels.repository.EmployeeRepository;
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.PersistenceContext;
 import jakarta.transaction.Transactional;

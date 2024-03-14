@@ -1,4 +1,4 @@
-package io.eliseoorellana.classicmodels.Controller;
+package io.eliseoorellana.classicmodels.controller;
 
 import java.util.Collections;
 import java.util.Comparator;
@@ -12,10 +12,10 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
-import io.eliseoorellana.classicmodels.Service.EmployeeService;
-import io.eliseoorellana.classicmodels.Service.OfficeService;
 import io.eliseoorellana.classicmodels.model.Employee;
 import io.eliseoorellana.classicmodels.model.Office;
+import io.eliseoorellana.classicmodels.service.EmployeeService;
+import io.eliseoorellana.classicmodels.service.OfficeService;
 
 @Controller
 @RequestMapping("/sales-manager")
