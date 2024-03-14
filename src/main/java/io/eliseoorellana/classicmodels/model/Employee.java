@@ -42,10 +42,14 @@ public class Employee {
     @Column(name = "jobTitle", length = 50)
     private String jobTitle;
 
+    @Column(name = "officeCode", length = 10)
+    private String officeCode;
+
+
     private boolean deleted=Boolean.FALSE; // Campo para el soft delete iniciandolos como false
     
     @ManyToOne
-    @JoinColumn(name = "officeCode", referencedColumnName = "officeCode")
+    @JoinColumn(name = "officeCode", referencedColumnName = "officeCode",insertable = false, updatable = false)
     private Office office;
     
     

@@ -35,12 +35,12 @@ public interface EmployeeRepository extends JpaRepository<Employee, Integer> {
     @Transactional
     @Modifying
     @Query("UPDATE Employee e SET e.reportsTo = NULL WHERE e.reportsTo = :employeeNumber")
-    void updateReportsToToNull(@Param("employeeNumber") int employeeNumber);
+    void updateReportsToToNull(@Param("employeeNumber") Integer employeeNumber);
 
     @Transactional
     @Modifying
     @Query("DELETE FROM Employee e WHERE e.employeeNumber = :employeeNumber")
-    void deleteByEmployeeNumber(@Param("employeeNumber") int employeeNumber);
+    void deleteByEmployeeNumber(@Param("employeeNumber") Integer employeeNumber);
 
 
 }

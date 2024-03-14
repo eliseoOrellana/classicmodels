@@ -55,10 +55,15 @@
         <input type="text" id="reportsTo" name="reportsTo" required><br> -->
         
         
-        <label for="jobTitle">Job Title:</label>
+        <!--<label for="jobTitle">Job Title:</label>
         <select id="jobTitle" name="jobTitle" required>
             <option value="" selected disabled>Select one</option>
             <option th:each="jobTitle : ${distinctJobTitles}" th:value="${employee.jobTitle}" th:text="${jobTitle}"></option>
+        </select>-->
+        <label for="jobTitle">Job Title:</label>
+        <select id="jobTitle" name="jobTitle" required>
+            <option value="" selected disabled>Select one2</option>
+            <option th:each="jobTitle : ${distinctJobTitles}" th:value="${jobTitle}" th:text="${jobTitle}"></option>
         </select>
         
         <label for="officeCode">Office Code:</label>

@@ -52,6 +52,7 @@ public class EmployeeController {
         model.addAttribute("employees", employeeService.getAllEmployees()); // Lista de empleados y cargos
         model.addAttribute("officeCodes", officeService.getAllOffices()); // Lista de códigos de oficina con país y
         model.addAttribute("distinctJobTitles", employeeService.findDistinctJobTitles());
+       
         return "add";
     }
 
@@ -60,6 +61,7 @@ public class EmployeeController {
         employeeService.saveOrUpdate(employee);
         redirectAttributes.addFlashAttribute("message", "Employee saved successfully!");
         return "redirect:/employees";
+        
     }
 
     // @PutMapping("/{id}")
