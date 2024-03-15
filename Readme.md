@@ -136,7 +136,7 @@ Add badges from somewhere like: [shields.io](https://shields.io/)
 
 
 ## 🛠 Skills
-java, Spring Boot, Thymeleaf, JPA, REST, HTML, CSS, JS
+Java, Spring Boot, Thymeleaf, JPA, REST, HTML, CSS, JS, MVC.
 
 
 
