@@ -102,14 +102,16 @@ Se proporcionará un servicio REST para acceder a la información del monitor de
 
 Instrucciones de Uso
 
-Clonar el repositorio desde [URL_DEL_REPOSITORIO].
+Clonar el repositorio desde [https://github.com/eliseoOrellana/classicmodels.git].
 
 Configurar la conexión a la base de datos en el archivo application.properties.
 
 Ejecutar la aplicación y acceder a la URL [(http://localhost:8080/)].
 
 Para acceder a la API REST, utilizar las siguientes rutas:
+
 [http://localhost:8080/employees]
+
 [http://localhost:8080/sales-manager]
 ...
 ## Acknowledgements
