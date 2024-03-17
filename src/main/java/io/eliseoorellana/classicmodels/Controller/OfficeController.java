@@ -1,4 +1,4 @@
-package io.eliseoorellana.classicmodels.controller;
+package io.eliseoorellana.classicmodels.Controller;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -9,8 +9,9 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+import io.eliseoorellana.classicmodels.Service.OfficeService;
 import io.eliseoorellana.classicmodels.model.Office;
-import io.eliseoorellana.classicmodels.service.OfficeService;
+
 
 @Controller
 @RequestMapping("/offices")

@@ -1,4 +1,4 @@
-package io.eliseoorellana.classicmodels.controller;
+package io.eliseoorellana.classicmodels.Controller;
 
 import java.util.List;
 
@@ -8,8 +8,10 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
+import io.eliseoorellana.classicmodels.Service.EmployeeService;
 import io.eliseoorellana.classicmodels.model.Employee;
-import io.eliseoorellana.classicmodels.service.EmployeeService;
+
+
 
 @RestController
 public class SalesManagerRestController {

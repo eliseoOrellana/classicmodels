@@ -1,4 +1,4 @@
-package io.eliseoorellana.classicmodels.service;
+package io.eliseoorellana.classicmodels.Service;
 
 import java.util.Collections;
 import java.util.List;
@@ -6,8 +6,9 @@ import java.util.Optional;
 
 import org.springframework.stereotype.Service;
 
+import io.eliseoorellana.classicmodels.Repository.OfficeRepository;
 import io.eliseoorellana.classicmodels.model.Office;
-import io.eliseoorellana.classicmodels.repository.OfficeRepository;
+
 
 @Service
 public class OfficeService {

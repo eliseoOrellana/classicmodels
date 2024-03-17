@@ -1,4 +1,4 @@
-package io.eliseoorellana.classicmodels.controller;
+package io.eliseoorellana.classicmodels.Controller;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -10,9 +10,11 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
+import io.eliseoorellana.classicmodels.Service.EmployeeService;
+import io.eliseoorellana.classicmodels.Service.OfficeService;
 import io.eliseoorellana.classicmodels.model.Employee;
-import io.eliseoorellana.classicmodels.service.EmployeeService;
-import io.eliseoorellana.classicmodels.service.OfficeService;
+
+
 
 @Controller
 @RequestMapping("/employees")

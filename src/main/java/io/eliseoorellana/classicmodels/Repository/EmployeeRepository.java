@@ -1,4 +1,4 @@
-package io.eliseoorellana.classicmodels.repository;
+package io.eliseoorellana.classicmodels.Repository;
 
 import java.util.List;
 
