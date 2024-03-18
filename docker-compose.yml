@@ -1,0 +1,42 @@
+version: '3.8'
+
+services:
+  app:
+    build: .
+    ports:
+      - "8080:8080"
+    depends_on:
+      - db
+
+    environment:
+      url: jdbc:mysql://db:3306/classic
+      dbusername: root
+      dbpassword: 1234
+      driver: com.mysql.cj.jdbc.Driver
+      spring.jpa.hibernate.ddl-auto: "update"
+      spring.thymeleaf.prefix: classpath:/templates/
+      spring.thymeleaf.suffix: .html
+  
+  db:
+    image: mysql:latest
+    restart: always
+    environment:
+      MYSQL_DATABASE: classic
+      MYSQL_ROOT_PASSWORD: 1234 
+    volumes:
+      - mysql-data:/var/lib/mysql
+    ports:
+      - "3306:3306"
+  phpmyadmin:
+    image: phpmyadmin/phpmyadmin:latest
+    restart: always
+    environment:
+      PMA_HOST: db
+      PMA_PORT: 3306
+      MYSQL_ROOT_PASSWORD: 1234
+    ports:
+      - "8081:80"
+
+volumes:
+  mysql-data:
+
