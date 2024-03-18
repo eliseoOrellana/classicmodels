@@ -100,19 +100,57 @@ Se proporcionará un servicio REST para acceder a la información del monitor de
 
 ---
 
-Instrucciones de Uso
+## Instrucciones de Uso
 
-Clonar el repositorio desde [https://github.com/eliseoOrellana/classicmodels.git].
+Requisitos Previos
 
-Configurar la conexión a la base de datos en el archivo application.properties.
+• Instalacion Dockerdesktop [https://www.docker.com/products/docker-desktop/]
 
-Ejecutar la aplicación y acceder a la URL [(http://localhost:8080/)].
+Comenzar
+
+• Clonar el repositorio desde [https://github.com/eliseoOrellana/classicmodels.git].
+
+• Construye las imágenes de Docker y ejecuta los contenedores usando Docker Compose:
+
+```bash
+docker-compose up --build
+```
+
+• Una vez que los contenedores estén en funcionamiento, puedes acceder a la aplicación web en:
+ [(http://localhost:8080/)].
+
+[(http://localhost:8081/)].
+para la revision de la bd.(credenciales en el docker compose o application.properties)
 
 Para acceder a la API REST, utilizar las siguientes rutas:
 
 [http://localhost:8080/employees]
 
 [http://localhost:8080/sales-manager]
+
+• Para detener la aplicación y eliminar los contenedores, presiona Ctrl + C para detener Docker Compose y luego ejecuta:
+
+```bash
+docker-compose down
+```
+
+## Configuración de la Aplicación
+
+La aplicación Spring Boot se conecta a una base de datos MySQL utilizando la siguiente configuración:
+
+URL de la Base de Datos: jdbc:mysql://localhost:3306/classic
+Usuario: root
+Contraseña: 1234
+
+# Inicialización de la Base de Datos
+La base de datos MySQL se inicializa con algunos datos de muestra al iniciar. Puedes encontrar los scripts SQL para crear las tablas e insertar datos iniciales en el directorio sql-scripts.
+
+# Desarrollo
+Si deseas modificar el código de la aplicación, puedes hacerlo editando los archivos en el directorio src/main/java. Después de hacer cambios, puedes reconstruir las imágenes de Docker y reiniciar los contenedores para ver las actualizaciones.
+
+# Soporte
+Para cualquier problema o pregunta relacionada con la aplicación, no dudes en contactarme.
+
 ...
 ## Acknowledgements
 
