@@ -143,7 +143,7 @@ Usuario: root
 Contraseña: 1234
 
 # Inicialización de la Base de Datos
-La base de datos MySQL se inicializa con algunos datos de muestra al iniciar. Puedes encontrar los scripts SQL para crear las tablas e insertar datos iniciales en el directorio sql-scripts.
+La base de datos MySQL se inicializa con algunos datos de muestra al iniciar. Puedes encontrar los scripts SQL para crear insertar datos iniciales en el archivo bd inserts test.txt.
 
 # Desarrollo
 Si deseas modificar el código de la aplicación, puedes hacerlo editando los archivos en el directorio src/main/java. Después de hacer cambios, puedes reconstruir las imágenes de Docker y reiniciar los contenedores para ver las actualizaciones.
