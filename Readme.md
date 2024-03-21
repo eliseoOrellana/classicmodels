@@ -119,14 +119,16 @@ docker-compose up --build
 • Una vez que los contenedores estén en funcionamiento, puedes acceder a la aplicación web en:
  [(http://localhost:8080/)].
 
-[(http://localhost:8081/)].
-para la revision de la bd.(credenciales en el docker compose o application.properties)
+
+• Para la revision de la bd.(credenciales en el docker compose o application.properties).
+ [(http://localhost:8081/)].
 
 Para acceder a la API REST, utilizar las siguientes rutas:
 
-[http://localhost:8080/employees]
+ej. 
 
-[http://localhost:8080/sales-manager]
+[http://localhost:8080/api/salesManager?officeCode=USA&salesManagerId=1143]
+
 
 • Para detener la aplicación y eliminar los contenedores, presiona Ctrl + C para detener Docker Compose y luego ejecuta:
 
@@ -138,7 +140,7 @@ docker-compose down
 
 La aplicación Spring Boot se conecta a una base de datos MySQL utilizando la siguiente configuración:
 
-URL de la Base de Datos: jdbc:mysql://localhost:3306/classic
+URL de la Base de Datos: jdbc:mysql://localhost:3306/classic  [http://localhost:8081/]
 Usuario: root
 Contraseña: 1234
 
@@ -147,6 +149,7 @@ La base de datos MySQL se inicializa con algunos datos de muestra al iniciar. Pu
 
 # Desarrollo
 Si deseas modificar el código de la aplicación, puedes hacerlo editando los archivos en el directorio src/main/java. Después de hacer cambios, puedes reconstruir las imágenes de Docker y reiniciar los contenedores para ver las actualizaciones.
+El contenedor Docker fue configurado con volumes para persistencia de datos y no se borren cada vez que reinicias el servicio.
 
 # Soporte
 Para cualquier problema o pregunta relacionada con la aplicación, no dudes en contactarme.
