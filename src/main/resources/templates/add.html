@@ -50,7 +50,7 @@
         
             <label for="jobTitle">Job Title:</label>
             <select id="jobTitle" name="jobTitle" required>
-                <option value="" selected disabled>Select one2</option>
+                <option value="" selected disabled>Select one</option>
                 <option th:each="jobTitle : ${distinctJobTitles}" th:value="${jobTitle}" th:text="${jobTitle}"></option>
             </select>
         
