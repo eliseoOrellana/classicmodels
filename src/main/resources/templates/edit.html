@@ -28,16 +28,16 @@
 
     
     <form  id="contact" method="post" th:action="@{/employees/edit/{id}(id=${employee.employeeNumber})}" class="border-dark" >
-        <div class="form-group">
-            <label for="lastName">Last Name:</label>
-            <input type="text" id="lastName" name="lastName" class="form-control" th:value="${employee.lastName}">
-        </div>
         
         <div class="form-group">
             <label for="firstName">First Name:</label>
             <input type="text" id="firstName" name="firstName" class="form-control" th:value="${employee.firstName}">
         </div>
-        
+        <div class="form-group">
+            <label for="lastName">Last Name:</label>
+            <input type="text" id="lastName" name="lastName" class="form-control" th:value="${employee.lastName}">
+        </div>
+
         <div class="form-group">
             <label for="extension">Extension:</label>
             <input type="text" id="extension" name="extension" class="form-control" th:value="${employee.extension}">
