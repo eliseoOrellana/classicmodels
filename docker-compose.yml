@@ -9,24 +9,25 @@ services:
       - db
 
     environment:
-      url: jdbc:mysql://db:3306/classic
+      url: jdbc:postgresql://THoVTXWjWrw6AiElJGUCemiYDdSASgfO@dpg-cnumn5ljm4es73a074jg-a.oregon-postgres.render.com/classic_yzjm
       dbusername: root
-      dbpassword: 1234
-      driver: com.mysql.cj.jdbc.Driver
+      dbpassword: THoVTXWjWrw6AiElJGUCemiYDdSASgfO 
+      driver: org.postgresql.Driver
       spring.jpa.hibernate.ddl-auto: "update"
       spring.thymeleaf.prefix: classpath:/templates/
       spring.thymeleaf.suffix: .html
   
   db:
-    image: mysql:latest
+    image: postgres:latest
     restart: always
     environment:
-      MYSQL_DATABASE: classic
-      MYSQL_ROOT_PASSWORD: 1234 
+      M POSTGRES_DB: classic
+      POSTGRES_USER: root
+      POSTGRES_PASSWORD: THoVTXWjWrw6AiElJGUCemiYDdSASgfO
     volumes:
-      - mysql-data:/var/lib/mysql
+      - postgres-data:/var/lib/postgresql/data
     ports:
-      - "3306:3306"
+      - "5432:5432"
   phpmyadmin:
     image: phpmyadmin/phpmyadmin:latest
     restart: always
@@ -38,5 +39,5 @@ services:
       - "8081:80"
 
 volumes:
-  mysql-data:
+  postgres-data:
 
