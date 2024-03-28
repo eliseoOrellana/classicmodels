@@ -1,6 +1,6 @@
 # Prueba de certificación Desarrollador full stack Java trainee
 
-Institución: Talento Digital para Chile
+Institución: Talento Digital para Chile.
 
 EXAMEN DE CERTIFICACIÓN: Caso “Classicmodels Sales Force”
 
