@@ -1,4 +1,4 @@
-package com.irojas.demojwt.Auth;
+package io.eliseoorellana.classicmodels.Auth;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
