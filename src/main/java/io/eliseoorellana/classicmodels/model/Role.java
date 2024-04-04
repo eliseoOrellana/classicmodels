@@ -1,6 +1,6 @@
 package io.eliseoorellana.classicmodels.model;
 
-public enum Rol {
+public enum Role {
 
     ADMIN,
     USER  
