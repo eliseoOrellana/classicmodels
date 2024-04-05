@@ -20,7 +20,7 @@ import lombok.RequiredArgsConstructor;
 
 @Component
 @RequiredArgsConstructor
-public class SecurityAuthenticationFilter extends OncePerRequestFilter {// garantizamos que el filtro se execute solo
+public class JwtAuthenticationFilter extends OncePerRequestFilter {// garantizamos que el filtro se execute solo
                                                                         // una vez por cada solicitud http
 
     private final JwtService jwtService;

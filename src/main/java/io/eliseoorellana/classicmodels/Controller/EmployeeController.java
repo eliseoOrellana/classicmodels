@@ -1,5 +1,6 @@
 package io.eliseoorellana.classicmodels.Controller;
 
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 
@@ -17,6 +18,7 @@ import io.eliseoorellana.classicmodels.model.Employee;
 
 
 @Controller
+@PreAuthorize("hasAnyRole('USER', 'ADMIN')")
 @RequestMapping("/employees")
 public class EmployeeController {
 
