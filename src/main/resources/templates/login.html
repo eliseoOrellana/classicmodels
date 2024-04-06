@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org">
+<html lang="en"xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
     <title>Login</title>
@@ -14,7 +14,7 @@
                         <h2>Login</h2>
                     </div>
                     <div class="card-body">
-                        <form th:action="@{/auth/login}" th:object="${loginRequest}" method="post"> 
+                        <form th:action="@{/auth/login}" th:object="${loginRequest}" method="post" enctype="application/json">
                             <div class="form-group">
                                 <label for="username">Username:</label>
                                 <input type="text" class="form-control" id="username" th:field="*{username}" required>
