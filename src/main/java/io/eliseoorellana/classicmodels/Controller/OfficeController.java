@@ -2,6 +2,7 @@ package io.eliseoorellana.classicmodels.Controller;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -15,6 +16,7 @@ import io.eliseoorellana.classicmodels.model.Office;
 
 @Controller
 @RequestMapping("/offices")
+@CrossOrigin(origins = {"http://localhost:8080"})
 public class OfficeController {
 
 private final OfficeService officeService;

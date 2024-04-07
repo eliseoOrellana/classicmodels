@@ -1,25 +1,34 @@
 package io.eliseoorellana.classicmodels.Service;
+
 import org.springframework.stereotype.Service;
-import jakarta.transaction.Transactional;
+import org.springframework.transaction.annotation.Transactional;
+
+import io.eliseoorellana.classicmodels.DTO.UserDTO;
+import io.eliseoorellana.classicmodels.Repository.UserRepository;
+import io.eliseoorellana.classicmodels.Request.UserRequest;
+import io.eliseoorellana.classicmodels.Response.UserResponse;
+import io.eliseoorellana.classicmodels.model.Role;
+import io.eliseoorellana.classicmodels.model.User;
 import lombok.RequiredArgsConstructor;
 
 @Service
 @RequiredArgsConstructor
 public class UserService {
+    
     private final UserRepository userRepository; 
 
     @Transactional
     public UserResponse updateUser(UserRequest userRequest) {
        
         User user = User.builder()
-        .id(userRequest.id)
+        .id(userRequest.getId())
         .firstname(userRequest.getFirstname())
-        .lastname(userRequest.lastname)
+        .lastname(userRequest.getLastname())
         .country(userRequest.getCountry())
         .role(Role.USER)
         .build();
         
-        userRepository.updateUser(user.id, user.firstname, user.lastname, user.country);
+        userRepository.updateUser(user.getId(), user.getFirstname(), user.getLastname(), user.getCountry());
 
         return new UserResponse("El usuario se registró satisfactoriamente");
     }
@@ -29,14 +38,13 @@ public class UserService {
        
         if (user!=null)
         {
-            UserDTO userDTO = UserDTO.builder()
-            .id(user.id)
-            .username(user.username)
-            .firstname(user.firstname)
-            .lastname(user.lastname)
-            .country(user.country)
+            return UserDTO.builder()
+            .id(user.getId())
+            .username(user.getUsername())
+            .firstname(user.getFirstname())
+            .lastname(user.getLastname())
+            .country(user.getCountry())
             .build();
-            return userDTO;
         }
         return null;
     }
