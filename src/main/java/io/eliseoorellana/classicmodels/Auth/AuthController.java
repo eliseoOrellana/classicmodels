@@ -6,20 +6,18 @@ import org.springframework.web.bind.annotation.RestController;
 import lombok.RequiredArgsConstructor;
 
 import org.springframework.http.ResponseEntity;
-import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 
 
 
-@Controller
+@RestController
 @RequestMapping("/auth")
 @RequiredArgsConstructor
-// @CrossOrigin(origins = {"http://localhost:8080"})
+@CrossOrigin(origins = {"http://localhost:8080"})
 public class AuthController {
 
 
