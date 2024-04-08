@@ -21,7 +21,7 @@ import io.eliseoorellana.classicmodels.model.Office;
 
 @Controller
 @RequestMapping("/sales-manager")
-@CrossOrigin(origins = {"http://localhost:8080"})
+// @CrossOrigin(origins = {"http://localhost:8080"})
 public class SalesManagerController {
 
     @Autowired

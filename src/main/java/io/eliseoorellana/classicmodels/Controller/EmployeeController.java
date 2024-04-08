@@ -20,7 +20,7 @@ import io.eliseoorellana.classicmodels.model.Employee;
 @Controller
 @PreAuthorize("hasAnyRole('USER', 'ADMIN')")
 @RequestMapping("/employees")
-@CrossOrigin(origins = {"http://localhost:8080"})
+// @CrossOrigin(origins = {"http://localhost:8080"})
 public class EmployeeController {
 
     private final EmployeeService employeeService;

@@ -8,7 +8,7 @@ public class MainController {
     
 
     @GetMapping("/")
-    @CrossOrigin(origins = {"http://localhost:8080"})
+    // @CrossOrigin(origins = {"http://localhost:8080"})
     public String redirectToSalesManagerIndex() {
         return "redirect:/sales-manager/index";
     }

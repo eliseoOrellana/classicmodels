@@ -17,7 +17,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 @RestController
 @RequestMapping("/auth")
 @RequiredArgsConstructor
-@CrossOrigin(origins = {"http://localhost:8080"})
+// @CrossOrigin(origins = {"http://localhost:8080"})
 public class AuthController {
 
 
@@ -47,5 +47,5 @@ public class AuthController {
         return "register"; // Nombre de la plantilla Thymeleaf para el formulario de registro
     }
 
-
+    
 }

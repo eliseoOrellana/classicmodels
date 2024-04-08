@@ -31,9 +31,10 @@ public class SecurityConfig {
                 .disable())
             .authorizeHttpRequests(authRequest ->
               authRequest
-                .requestMatchers(HttpMethod.GET).permitAll()
-                .requestMatchers(HttpMethod.OPTIONS).permitAll()
-                .requestMatchers("/auth/**","/auth/login").permitAll()
+                // .requestMatchers(HttpMethod.GET).permitAll()
+                // .requestMatchers(HttpMethod.OPTIONS).permitAll()
+                .requestMatchers(HttpMethod.POST, "/auth/login", "/auth/register").permitAll() // Permitir acceso al login y registro
+                .requestMatchers("/auth/**").permitAll()
                 .anyRequest().authenticated()
                 )
             .sessionManagement(sessionManager->

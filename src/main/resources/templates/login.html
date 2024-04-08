@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en"xmlns:th="http://www.thymeleaf.org">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
     <title>Login</title>
@@ -17,11 +17,14 @@
                         <form th:action="@{/auth/login}" th:object="${loginRequest}" method="post" enctype="application/json">
                             <div class="form-group">
                                 <label for="username">Username:</label>
-                                <input type="text" class="form-control" id="username" th:field="*{username}" required>
+                                <input type="text" class="form-control" id="username" th:field="*{username}" name="username" required>
                             </div>
                             <div class="form-group">
                                 <label for="password">Password:</label>
-                                <input type="password" class="form-control" id="password" th:field="*{password}" required>
+                                <input type="password" class="form-control" id="password" th:field="*{password}" name="password"  required>
+                            </div>
+                            <div class="alert alert-danger" th:if="${loginError}">
+                                <p th:text="${loginError}"></p>
                             </div>
                             <button type="submit" class="btn btn-primary">Login</button>
                         </form>
