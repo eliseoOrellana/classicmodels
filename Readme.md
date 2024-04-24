@@ -45,7 +45,6 @@ El jefe de proyectos, quien lleva un control meticuloso de las actividades del p
 4. Crear un Monitor de Gestión de Vendedores
 5. Crear una API REST que disponibilice la información del monitor de gestión de vendedores
 
-
 ----
 
 Requerimientos a Desarrollar: Objetivos especificos.
