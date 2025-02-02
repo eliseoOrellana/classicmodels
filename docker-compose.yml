@@ -6,7 +6,8 @@ services:
     ports:
       - "8080:8080"
     depends_on:
-      - db
+      - db:
+          condition: service_healthy
 
     environment:
       url: jdbc:mysql://db:3306/classic
@@ -27,6 +28,12 @@ services:
       - mysql-data:/var/lib/mysql
     ports:
       - "3306:3306"
+    healthcheck:   # 🔹 Agregar esto
+    test: ["CMD", "mysqladmin", "ping", "-h", "localhost"]
+    interval: 10s
+    retries: 5
+    start_period: 20s
+
   phpmyadmin:
     image: phpmyadmin/phpmyadmin:latest
     restart: always
